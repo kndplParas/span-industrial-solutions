@@ -75,16 +75,6 @@ export const Header: React.FC = () => {
               Services
             </a>
             <a
-              href="#video-solutions"
-              className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('video-solutions');
-              }}
-            >
-              Video Solutions
-            </a>
-            <a
               href="#why-span"
               className="nav-link"
               onClick={(e) => {
@@ -93,16 +83,6 @@ export const Header: React.FC = () => {
               }}
             >
               Why SPAN
-            </a>
-            <a
-              href="#contact"
-              className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('contact');
-              }}
-            >
-              Contact
             </a>
           </nav>
 
@@ -172,18 +152,6 @@ export const Header: React.FC = () => {
           </li>
           <li>
             <a
-              href="#video-solutions"
-              className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('video-solutions');
-              }}
-            >
-              Industrial Video Solutions
-            </a>
-          </li>
-          <li>
-            <a
               href="#why-span"
               className="mobile-nav-link"
               onClick={(e) => {
@@ -192,18 +160,6 @@ export const Header: React.FC = () => {
               }}
             >
               Why Choose SPAN
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('contact');
-              }}
-            >
-              Contact & Offices
             </a>
           </li>
         </ul>
