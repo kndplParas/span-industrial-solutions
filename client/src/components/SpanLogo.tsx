@@ -15,8 +15,11 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
 }) => {
   const displayCorporate = showSubtitle !== undefined ? showSubtitle : showCorporateName;
   const isLight = variant === 'light';
-  const redBrandColor = '#b91c1c';
-  const corporateTextColor = isLight ? '#ffffff' : '#0b2545';
+
+  // Exact brand colors from official logo
+  const markBerryColor = '#9e1245';
+  const wordmarkColor = isLight ? '#ffffff' : '#374151';
+  const corporateTextColor = isLight ? '#f1f5f9' : '#0b2545';
   const badgeTextColor = isLight ? '#94a3b8' : '#64748b';
 
   return (
@@ -29,16 +32,16 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
         textDecoration: 'none',
       }}
     >
-      {/* 1. Official PDF Brandmark: Concentric Red Spiral Glyph + lowercase 'span' */}
+      {/* 1. Official SPAN Brandmark: Berry Circle with 3 White Bridge Arches + 'span' Wordmark */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '7px',
+          gap: '8px',
           flexShrink: 0,
         }}
       >
-        {/* Exact Red Spiral / Swirl Glyph from PDF */}
+        {/* Berry Red Circular Badge with 3 White Bridge Arches */}
         <svg
           width="36"
           height="36"
@@ -48,40 +51,49 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
           aria-hidden="true"
           style={{ flexShrink: 0 }}
         >
-          {/* Outer concentric curve */}
-          <path
-            d="M50 8 C73.196 8 92 26.804 92 50 C92 73.196 73.196 92 50 92 C26.804 92 8 73.196 8 50 C8 32.5 19 17.5 35 11"
-            stroke={redBrandColor}
-            strokeWidth="9"
-            strokeLinecap="round"
-          />
-          {/* Middle concentric curve */}
-          <path
-            d="M50 22 C65.464 22 78 34.536 78 50 C78 65.464 65.464 78 50 78 C34.536 78 22 65.464 22 50 C22 39 29.5 29 40 24.5"
-            stroke={redBrandColor}
-            strokeWidth="8.5"
-            strokeLinecap="round"
-          />
-          {/* Inner concentric curve */}
-          <path
-            d="M50 36 C57.732 36 64 42.268 64 50 C64 57.732 57.732 64 50 64 C42.268 64 36 57.732 36 50 C36 44 40.5 39 46.5 37.5"
-            stroke={redBrandColor}
-            strokeWidth="8"
-            strokeLinecap="round"
-          />
-          {/* Core dot */}
-          <circle cx="50" cy="50" r="5" fill={redBrandColor} />
+          <defs>
+            <clipPath id="span-logo-badge-clip">
+              <circle cx="50" cy="50" r="48" />
+            </clipPath>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill={markBerryColor} />
+          <g clipPath="url(#span-logo-badge-clip)">
+            {/* Top bridge arch */}
+            <path
+              d="M 10 38 Q 50 16 90 38"
+              stroke="#ffffff"
+              strokeWidth="7"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Middle bridge arch */}
+            <path
+              d="M 5 56 Q 50 32 95 56"
+              stroke="#ffffff"
+              strokeWidth="7"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Lower bridge arch */}
+            <path
+              d="M 8 74 Q 50 48 92 74"
+              stroke="#ffffff"
+              strokeWidth="7"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </g>
         </svg>
 
-        {/* The exact lowercase 'span' wordmark in red from PDF */}
+        {/* Lowercase 'span' wordmark in charcoal grey from official logo */}
         <span
           style={{
-            color: redBrandColor,
+            color: wordmarkColor,
             fontFamily: "var(--font-family), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
             fontSize: '1.9rem',
-            fontWeight: 800,
+            fontWeight: 700,
             lineHeight: 1,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.02em',
             display: 'inline-block',
           }}
         >
@@ -89,7 +101,7 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
         </span>
       </div>
 
-      {/* 2. Full Corporate Name from PDF: 'SPAN INDUSTRIAL SOLUTIONS PVT LTD' */}
+      {/* 2. Full Corporate Name: 'SPAN INDUSTRIAL SOLUTIONS PVT LTD' */}
       {displayCorporate && (
         <div
           style={{

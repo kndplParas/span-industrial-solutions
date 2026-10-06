@@ -1,6 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <path d="M50 8 C73.196 8 92 26.804 92 50 C92 73.196 73.196 92 50 92 C26.804 92 8 73.196 8 50 C8 32.5 19 17.5 35 11" stroke="#b91c1c" stroke-width="8.5" stroke-linecap="round" fill="none"/>
-  <path d="M50 22 C65.464 22 78 34.536 78 50 C78 65.464 65.464 78 50 78 C34.536 78 22 65.464 22 50 C22 39 29.5 29 40 24.5" stroke="#b91c1c" stroke-width="8" stroke-linecap="round" fill="none"/>
-  <path d="M50 36 C57.732 36 64 42.268 64 50 C64 57.732 57.732 64 50 64 C42.268 64 36 57.732 36 50 C36 44 40.5 39 46.5 37.5" stroke="#b91c1c" stroke-width="7.5" stroke-linecap="round" fill="none"/>
-  <circle cx="50" cy="50" r="5" fill="#b91c1c"/>
+  <defs>
+    <clipPath id="span-circle-clip">
+      <circle cx="50" cy="50" r="48" />
+    </clipPath>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="#9e1245" />
+  <g clip-path="url(#span-circle-clip)">
+    <path d="M 10 38 Q 50 16 90 38" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 5 56 Q 50 32 95 56" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 8 74 Q 50 48 92 74" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+  </g>
 </svg>
