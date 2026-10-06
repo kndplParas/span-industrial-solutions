@@ -1,0 +1,27 @@
+{
+  "name": "span-industrial-solutions",
+  "version": "1.0.0",
+  "description": "SPAN Industrial Solutions Pvt Ltd Corporate Website & API",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build": "npm run build:client && npm run build:server",
+    "start": "npm run start --prefix server"
+  },
+  "keywords": [
+    "span",
+    "industrial-solutions",
+    "manufacturing",
+    "workforce",
+    "industrial-training",
+    "industrial-video-solutions"
+  ],
+  "author": "SPAN Industrial Solutions Pvt Ltd",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
