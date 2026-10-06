@@ -1,13 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Outer green ring and inner dark ring matching official circular emblem -->
+  <circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#16a34a" stroke-width="4" />
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#222222" stroke-width="2.5" />
+  
   <defs>
     <clipPath id="span-circle-clip">
-      <circle cx="50" cy="50" r="48" />
+      <circle cx="34" cy="50" r="21" />
     </clipPath>
   </defs>
-  <circle cx="50" cy="50" r="48" fill="#9e1245" />
+  
+  <!-- Berry emblem on the left -->
+  <circle cx="34" cy="50" r="21" fill="#9e1245" />
   <g clip-path="url(#span-circle-clip)">
-    <path d="M 10 38 Q 50 16 90 38" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
-    <path d="M 5 56 Q 50 32 95 56" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
-    <path d="M 8 74 Q 50 48 92 74" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 16 44 Q 34 32 52 44" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    <path d="M 13 52 Q 34 39 55 52" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    <path d="M 15 60 Q 34 47 53 60" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none" />
   </g>
+  
+  <!-- 'span' wordmark on the right -->
+  <text x="58" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700" fill="#4b5563">span</text>
 </svg>

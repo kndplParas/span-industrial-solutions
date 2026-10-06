@@ -1,6 +1,6 @@
 import React from 'react';
 import { SpanLogo } from './SpanLogo';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
 import type { InquiryServiceType } from '../types/inquiry';
 
 interface FooterProps {
@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
   const scrollTo = (id: string) => {
     const elem = document.getElementById(id);
     if (elem) {
-      const offset = 80;
+      const offset = 86;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = elem.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -27,27 +27,58 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
   return (
     <footer className="footer" role="contentinfo">
       <div className="container">
-        <div className="footer-grid">
-          {/* Col 1: Brand & Profile */}
-          <div>
-            <SpanLogo variant="light" showSubtitle={false} />
-            <div style={{ marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-              <span className="footer-badge">ISO 9001:2015 Certified</span>
+        {/* 1. TOP CONTACT STRIP */}
+        <div className="footer-top-strip">
+          <div className="footer-top-content">
+            <h3 className="footer-top-headline">
+              READY TO DISCUSS YOUR INDUSTRIAL REQUIREMENTS?
+            </h3>
+            <p className="footer-top-subline">
+              Workforce support, cost optimization, industrial training and visual communication.
+            </p>
+          </div>
+
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo('contact');
+            }}
+            className="footer-top-cta-btn"
+          >
+            <span>CONTACT SPAN</span>
+            <ArrowRight size={15} />
+          </a>
+        </div>
+
+        {/* 2. MAIN 4-COLUMN FOOTER */}
+        <div className="footer-main-grid">
+          {/* COLUMN 1 — BRAND */}
+          <div className="footer-col-brand">
+            <div className="footer-brand-logo">
+              <SpanLogo variant="light" size={46} showCorporateName={true} showSubtitle={false} />
             </div>
-            <p className="footer-desc">
-              SPAN Industrial Solutions Pvt Ltd, founded in 2021, delivers targeted workforce management,
+
+            <div className="footer-brand-cert">
+              <ShieldCheck size={14} className="cert-check-icon" />
+              <span>ISO 9001:2015 CERTIFIED COMPANY</span>
+            </div>
+
+            <p className="footer-brand-desc">
+              SPAN Industrial Solutions Pvt Ltd delivers targeted workforce management,
               manufacturing cost optimization (GET SHRINK), specialized engineering training, and
               industrial video solutions for manufacturing and corporate organizations.
             </p>
           </div>
 
-          {/* Col 2: Services */}
-          <div>
-            <h4 className="footer-col-title">Our Verticals</h4>
-            <ul className="footer-links-list">
-              <li className="footer-link-item">
+          {/* COLUMN 2 — OUR VERTICALS */}
+          <div className="footer-col-nav">
+            <h4 className="footer-col-heading">OUR VERTICALS</h4>
+            <ul className="footer-link-list">
+              <li>
                 <a
                   href="#services"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectService('Workforce Management Solutions');
@@ -56,9 +87,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   Workforce Management
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
                   href="#services"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectService('Guaranteed Saving Program');
@@ -67,9 +99,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   Guaranteed Saving (GET SHRINK)
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
                   href="#services"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectService('Experts Training for Industries');
@@ -78,9 +111,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   Industrial Experts Training
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
-                  href="#video-solutions"
+                  href="#services"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectService('Industrial / Corporate Video Solutions');
@@ -92,13 +126,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
             </ul>
           </div>
 
-          {/* Col 3: Quick Navigation */}
-          <div>
-            <h4 className="footer-col-title">Quick Navigation</h4>
-            <ul className="footer-links-list">
-              <li className="footer-link-item">
+          {/* COLUMN 3 — COMPANY */}
+          <div className="footer-col-nav">
+            <h4 className="footer-col-heading">COMPANY</h4>
+            <ul className="footer-link-list">
+              <li>
                 <a
                   href="#home"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo('home');
@@ -107,9 +142,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   Home Overview
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
                   href="#about"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo('about');
@@ -118,20 +154,22 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   About SPAN
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
-                  href="#video-solutions"
+                  href="#services"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollTo('video-solutions');
+                    scrollTo('services');
                   }}
                 >
-                  Video Solutions Workflow
+                  Core Services
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
                   href="#why-span"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo('why-span');
@@ -140,52 +178,72 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                   Why Partner With Us
                 </a>
               </li>
-              <li className="footer-link-item">
+              <li>
                 <a
                   href="#contact"
+                  className="footer-text-link"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollTo('contact');
                   }}
                 >
-                  Contact & Inquiries
+                  Contact &amp; Inquiries
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Corporate Offices */}
-          <div>
-            <h4 className="footer-col-title">Office Locations</h4>
-            <div className="footer-office-item">
-              <strong>Uttarakhand Office:</strong>
-              C5 Rampur Road, Preet Vihar, Rudrapur, US Nagar, Uttarakhand - 263153
-            </div>
-            <div className="footer-office-item">
-              <strong>NCR Office:</strong>
-              2nd Floor, Unit No-E-90, Sector-07, Noida, UP - 201301
+          {/* COLUMN 4 — CONTACT */}
+          <div className="footer-col-contact">
+            <h4 className="footer-col-heading">CONTACT</h4>
+
+            <div className="footer-contact-entry">
+              <div className="contact-label-row">
+                <MapPin size={14} className="contact-red-icon" />
+                <span className="contact-office-title">Uttarakhand Office</span>
+              </div>
+              <p className="contact-address-text">
+                C5 Rampur Road, Preet Vihar, Rudrapur, US Nagar, Uttarakhand - 263153
+              </p>
             </div>
 
-            <div style={{ marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.78rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Mail size={13} color="#f87171" />
-                <a href="mailto:sales@spansol.com" style={{ color: '#cbd5e1' }}>sales@spansol.com</a>
+            <div className="footer-contact-entry">
+              <div className="contact-label-row">
+                <MapPin size={14} className="contact-red-icon" />
+                <span className="contact-office-title">NCR Office</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Phone size={13} color="#f87171" />
-                <span style={{ color: '#cbd5e1' }}>0120-4484500 &bull; 9045085537</span>
+              <p className="contact-address-text">
+                2nd Floor, Unit No-E-90, Sector-07, Noida, UP - 201301
+              </p>
+            </div>
+
+            <div className="footer-direct-lines">
+              <div className="direct-comm-row">
+                <Mail size={14} className="contact-red-icon" />
+                <a href="mailto:sales@spansol.com" className="direct-comm-link">
+                  sales@spansol.com
+                </a>
+              </div>
+
+              <div className="direct-comm-row">
+                <Phone size={14} className="contact-red-icon" />
+                <div className="direct-phone-group">
+                  <a href="tel:01204484500" className="direct-comm-link">0120-4484500</a>
+                  <span className="phone-bullet">&bull;</span>
+                  <a href="tel:9045085537" className="direct-comm-link">9045085537</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="footer-bottom">
-          <div>
+        {/* 3. BOTTOM BAR */}
+        <div className="footer-bottom-bar">
+          <div className="bottom-bar-left">
             &copy; {new Date().getFullYear()} SPAN Industrial Solutions Pvt Ltd. All rights reserved.
           </div>
-          <div>
-            Corporate Registration: Founded 2021 &bull; ISO 9001:2015 Certified
+          <div className="bottom-bar-right">
+            Founded 2021 &bull; ISO 9001:2015 Certified Company
           </div>
         </div>
       </div>
