@@ -51,73 +51,80 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0 4px',
           boxShadow: isLight
             ? '0 2px 8px rgba(0, 0, 0, 0.25)'
             : '0 1px 4px rgba(11, 37, 69, 0.08)',
           flexShrink: 0,
           boxSizing: 'border-box',
-          overflow: 'hidden',
         }}
       >
-        <svg
-          width={badgeSize - 8}
-          height={badgeSize - 8}
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          style={{ display: 'block' }}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: size === 'sm' ? '2px' : '3px',
+            transform: 'translateY(-0.5px)',
+          }}
         >
           {/* Berry Red Circular Badge with 3 White Bridge Arches */}
-          <g transform="translate(14, 28)">
+          <svg
+            width={size === 'sm' ? 14 : size === 'lg' ? 20 : 17}
+            height={size === 'sm' ? 14 : size === 'lg' ? 20 : 17}
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            style={{ flexShrink: 0, display: 'block' }}
+          >
             <defs>
               <clipPath id="span-inner-badge-clip">
-                <circle cx="20" cy="22" r="19" />
+                <circle cx="50" cy="50" r="48" />
               </clipPath>
             </defs>
-            <circle cx="20" cy="22" r="19" fill={markBerryColor} />
+            <circle cx="50" cy="50" r="48" fill={markBerryColor} />
             <g clipPath="url(#span-inner-badge-clip)">
-              {/* Top bridge arch */}
               <path
-                d="M 5 17 Q 20 8 35 17"
+                d="M 10 38 Q 50 16 90 38"
                 stroke="#ffffff"
-                strokeWidth="3.2"
+                strokeWidth="7"
                 strokeLinecap="round"
                 fill="none"
               />
-              {/* Middle bridge arch */}
               <path
-                d="M 3 24 Q 20 15 37 24"
+                d="M 5 56 Q 50 32 95 56"
                 stroke="#ffffff"
-                strokeWidth="3.2"
+                strokeWidth="7"
                 strokeLinecap="round"
                 fill="none"
               />
-              {/* Lower bridge arch */}
               <path
-                d="M 4 31 Q 20 22 36 31"
+                d="M 8 74 Q 50 48 92 74"
                 stroke="#ffffff"
-                strokeWidth="3.2"
+                strokeWidth="7"
                 strokeLinecap="round"
                 fill="none"
               />
             </g>
-          </g>
+          </svg>
 
-          {/* Lowercase 'span' wordmark in charcoal grey */}
-          <text
-            x="54"
-            y="57"
-            fill={wordmarkColor}
-            fontFamily="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-            fontSize="26"
-            fontWeight="700"
-            letterSpacing="-0.8"
+          {/* Lowercase 'span' wordmark - 100% fully visible, crisp and unclipped */}
+          <span
+            style={{
+              color: wordmarkColor,
+              fontFamily:
+                "var(--font-family), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontSize: size === 'sm' ? '0.78rem' : size === 'lg' ? '1.05rem' : '0.92rem',
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: '-0.03em',
+              display: 'inline-block',
+              whiteSpace: 'nowrap',
+            }}
           >
             span
-          </text>
-        </svg>
+          </span>
+        </div>
       </div>
 
       {/* 2. Full Corporate Name & ISO Certification */}
