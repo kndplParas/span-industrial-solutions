@@ -1,0 +1,1159 @@
+/* ==========================================================================
+   SPAN Industrial Solutions - Premium Visual Background Atmosphere System
+   Distinct, Elegant, Aesthetic Corporate & Industrial Visuals
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container & Layering Helpers
+   -------------------------------------------------------------------------- */
+.has-atmosphere {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-content-layer {
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframe Animations (Silky-Smooth, Continuous, Hardware Accelerated)
+   -------------------------------------------------------------------------- */
+@keyframes orbBreathingSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(35px, -25px, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes orbBreathingAlt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(-30px, 25px, 0) scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+@keyframes beamSweepSlow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: rotate(-35deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: rotate(-33deg) scaleY(1.08);
+  }
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(15px, -30px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(360deg);
+  }
+}
+
+@keyframes particleShimmer {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate3d(10px, -20px, 0) scale(1.35);
+    opacity: 0.9;
+  }
+}
+
+@keyframes ringRotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section Atmosphere
+   -------------------------------------------------------------------------- */
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* 1. Architectural Precision Grid (Crisp and visible) */
+.hero-grid-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(11, 37, 69, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 37, 69, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, #000 45%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, #000 45%, transparent 85%);
+}
+
+/* 2. Luminous Gradient Glowing Orbs (Visible Depth) */
+.hero-orb-primary {
+  position: absolute;
+  top: -120px;
+  right: -60px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.24) 0%, rgba(56, 189, 248, 0.14) 40%, transparent 70%);
+  filter: blur(60px);
+  animation: orbBreathingSlow 16s ease-in-out infinite;
+}
+
+.hero-orb-accent {
+  position: absolute;
+  bottom: -80px;
+  left: -100px;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.18) 0%, rgba(225, 29, 72, 0.08) 45%, transparent 72%);
+  filter: blur(55px);
+  animation: orbBreathingAlt 20s ease-in-out infinite;
+}
+
+.hero-orb-amber {
+  position: absolute;
+  top: 35%;
+  left: 38%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(245, 158, 11, 0.07) 35%, transparent 68%);
+  filter: blur(50px);
+  animation: orbBreathingSlow 22s ease-in-out infinite reverse;
+}
+
+/* 3. Diagonal Atmospheric Light Beams */
+.hero-light-beam-1 {
+  position: absolute;
+  top: -180px;
+  right: 25%;
+  width: 160px;
+  height: 1000px;
+  transform: rotate(-35deg);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 132, 199, 0.2) 0%,
+    rgba(56, 189, 248, 0.1) 40%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  animation: beamSweepSlow 14s ease-in-out infinite alternate;
+}
+
+.hero-light-beam-2 {
+  position: absolute;
+  top: -140px;
+  right: 5%;
+  width: 140px;
+  height: 900px;
+  transform: rotate(-35deg);
+  background: linear-gradient(
+    180deg,
+    rgba(158, 18, 69, 0.15) 0%,
+    rgba(2, 132, 199, 0.08) 50%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  animation: beamSweepSlow 18s ease-in-out infinite alternate-reverse;
+}
+
+/* 4. Flowing Curves SVG */
+.hero-curves-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 5. Floating Geometric Rings / Bubbles */
+.floating-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 16s ease-in-out infinite;
+}
+
+.bubble-1 {
+  top: 18%;
+  left: 12%;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(2, 132, 199, 0.4);
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, transparent 70%);
+  animation-duration: 18s;
+}
+
+.bubble-2 {
+  top: 55%;
+  right: 14%;
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed rgba(158, 18, 69, 0.35);
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.08) 0%, transparent 70%);
+  animation-duration: 24s;
+  animation-delay: -5s;
+}
+
+.bubble-3 {
+  bottom: 22%;
+  left: 36%;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(2, 132, 199, 0.35);
+  animation-duration: 14s;
+  animation-delay: -8s;
+}
+
+/* 6. Luminous Floating Particles with Glow Shadow */
+.glowing-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleShimmer 8s ease-in-out infinite;
+}
+
+.gp-1 {
+  top: 22%;
+  left: 22%;
+  width: 7px;
+  height: 7px;
+  background-color: #0284c7;
+  box-shadow: 0 0 12px #0284c7, 0 0 24px rgba(2, 132, 199, 0.6);
+  animation-duration: 7s;
+}
+
+.gp-2 {
+  top: 42%;
+  right: 25%;
+  width: 8px;
+  height: 8px;
+  background-color: #9e1245;
+  box-shadow: 0 0 12px #9e1245, 0 0 20px rgba(158, 18, 69, 0.5);
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+.gp-3 {
+  bottom: 28%;
+  left: 15%;
+  width: 6px;
+  height: 6px;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+  animation-duration: 8s;
+  animation-delay: -4s;
+}
+
+.gp-4 {
+  top: 68%;
+  right: 32%;
+  width: 6px;
+  height: 6px;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 10px #0ea5e9;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+.gp-5 {
+  top: 15%;
+  right: 48%;
+  width: 5px;
+  height: 5px;
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation-duration: 6s;
+  animation-delay: -1s;
+}
+
+/* --------------------------------------------------------------------------
+   About Section Atmosphere (Blueprint Engineering & ISO Quality Rigor)
+   -------------------------------------------------------------------------- */
+.about-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.about-tech-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(11, 37, 69, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 37, 69, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, #000 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, #000 40%, transparent 85%);
+}
+
+.about-orb-teal {
+  position: absolute;
+  top: -60px;
+  left: -80px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.18) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%);
+  filter: blur(55px);
+  animation: orbBreathingSlow 18s ease-in-out infinite;
+}
+
+.about-orb-amber {
+  position: absolute;
+  bottom: -90px;
+  right: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(158, 18, 69, 0.07) 45%, transparent 70%);
+  filter: blur(50px);
+  animation: orbBreathingAlt 22s ease-in-out infinite;
+}
+
+.about-geo-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about-geo-ring.ring-1 {
+  top: 15%;
+  right: 6%;
+  width: 240px;
+  height: 240px;
+  border: 1.5px dashed rgba(2, 132, 199, 0.22);
+  animation: ringRotateSlow 110s linear infinite;
+}
+
+.about-geo-ring.ring-2 {
+  bottom: 12%;
+  left: 4%;
+  width: 310px;
+  height: 310px;
+  border: 1.5px solid rgba(11, 37, 69, 0.12);
+  animation: ringRotateSlow 150s linear infinite reverse;
+}
+
+.about-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 16s ease-in-out infinite;
+}
+
+.about-bubble.ab-1 {
+  top: 25%;
+  right: 18%;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, transparent 70%);
+  animation-duration: 17s;
+}
+
+.about-bubble.ab-2 {
+  bottom: 24%;
+  left: 22%;
+  width: 38px;
+  height: 38px;
+  border: 1.5px dashed rgba(245, 158, 11, 0.3);
+  animation-duration: 21s;
+  animation-delay: -4s;
+}
+
+.about-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleShimmer 7s ease-in-out infinite;
+}
+
+.about-particle.ap-1 {
+  top: 20%;
+  left: 28%;
+  width: 6px;
+  height: 6px;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+  animation-duration: 6s;
+}
+
+.about-particle.ap-2 {
+  top: 65%;
+  right: 22%;
+  width: 7px;
+  height: 7px;
+  background-color: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+.about-particle.ap-3 {
+  bottom: 18%;
+  right: 45%;
+  width: 5px;
+  height: 5px;
+  background-color: #9e1245;
+  box-shadow: 0 0 8px #9e1245;
+  animation-duration: 9s;
+  animation-delay: -4s;
+}
+
+.about-crosshair {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0284c7;
+  opacity: 0.3;
+}
+
+.ac-tl { top: 20px; left: 24px; }
+.ac-br { bottom: 20px; right: 24px; }
+
+/* --------------------------------------------------------------------------
+   Services Atmosphere Elements (4-Spectrum Verticals)
+   -------------------------------------------------------------------------- */
+.services-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.services-radial-glow {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 820px;
+  height: 580px;
+  background: radial-gradient(ellipse, rgba(2, 132, 199, 0.12) 0%, rgba(158, 18, 69, 0.05) 50%, transparent 75%);
+  filter: blur(60px);
+}
+
+.services-quad-glow {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  filter: blur(50px);
+}
+
+.services-quad-glow.sq-cyan {
+  top: -80px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.16) 0%, transparent 70%);
+  animation: orbBreathingSlow 20s ease-in-out infinite;
+}
+
+.services-quad-glow.sq-berry {
+  top: -60px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.15) 0%, transparent 70%);
+  animation: orbBreathingAlt 18s ease-in-out infinite;
+}
+
+.services-quad-glow.sq-amber {
+  bottom: -80px;
+  left: -40px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, transparent 70%);
+  animation: orbBreathingAlt 24s ease-in-out infinite;
+}
+
+.services-quad-glow.sq-sky {
+  bottom: -60px;
+  right: -50px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.16) 0%, transparent 70%);
+  animation: orbBreathingSlow 22s ease-in-out infinite;
+}
+
+.services-ring-1 {
+  position: absolute;
+  top: 12%;
+  left: -60px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(11, 37, 69, 0.16);
+  animation: ringRotateSlow 100s linear infinite;
+}
+
+.services-ring-2 {
+  position: absolute;
+  bottom: 8%;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(2, 132, 199, 0.18);
+  animation: ringRotateSlow 140s linear infinite reverse;
+}
+
+.services-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 16s ease-in-out infinite;
+}
+
+.services-bubble.sb-1 {
+  top: 28%;
+  left: 8%;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, transparent 70%);
+  animation-duration: 19s;
+}
+
+.services-bubble.sb-2 {
+  bottom: 30%;
+  right: 10%;
+  width: 42px;
+  height: 42px;
+  border: 1.5px dashed rgba(158, 18, 69, 0.3);
+  animation-duration: 23s;
+  animation-delay: -6s;
+}
+
+.services-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleShimmer 8s ease-in-out infinite;
+}
+
+.services-particle.sp-1 {
+  top: 18%;
+  left: 20%;
+  width: 7px;
+  height: 7px;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+  animation-duration: 7s;
+}
+
+.services-particle.sp-2 {
+  top: 22%;
+  right: 22%;
+  width: 7px;
+  height: 7px;
+  background-color: #9e1245;
+  box-shadow: 0 0 10px #9e1245;
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+.services-particle.sp-3 {
+  bottom: 24%;
+  left: 24%;
+  width: 6px;
+  height: 6px;
+  background-color: #f59e0b;
+  box-shadow: 0 0 9px #f59e0b;
+  animation-duration: 8s;
+  animation-delay: -4s;
+}
+
+.services-particle.sp-4 {
+  bottom: 20%;
+  right: 26%;
+  width: 7px;
+  height: 7px;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 10px #0ea5e9;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+.grid-crosshair {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0284c7;
+  opacity: 0.35;
+  user-select: none;
+}
+
+.crosshair-tl { top: 20px; left: 24px; }
+.crosshair-tr { top: 20px; right: 24px; }
+.crosshair-bl { bottom: 20px; left: 24px; }
+.crosshair-br { bottom: 20px; right: 24px; }
+
+/* --------------------------------------------------------------------------
+   Video Solutions Section Atmosphere (Light Studio Media Theme)
+   -------------------------------------------------------------------------- */
+.video-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.video-light-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(11, 37, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 37, 69, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 45%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 45%, transparent 85%);
+}
+
+.video-beam-left {
+  position: absolute;
+  top: -20%;
+  left: -8%;
+  width: 42%;
+  height: 150%;
+  transform: rotate(24deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(2, 132, 199, 0.14) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(56, 189, 248, 0.12) 55%,
+    transparent 100%
+  );
+  filter: blur(26px);
+  animation: beamSweepSlow 15s ease-in-out infinite alternate;
+}
+
+.video-beam-right {
+  position: absolute;
+  bottom: -30%;
+  right: -8%;
+  width: 45%;
+  height: 150%;
+  transform: rotate(-26deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(158, 18, 69, 0.12) 40%,
+    rgba(2, 132, 199, 0.1) 55%,
+    transparent 100%
+  );
+  filter: blur(30px);
+  animation: beamSweepSlow 18s ease-in-out infinite alternate-reverse;
+}
+
+.video-orb-cyan {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 68%);
+  filter: blur(50px);
+  animation: orbBreathingSlow 16s ease-in-out infinite;
+}
+
+.video-orb-berry {
+  position: absolute;
+  bottom: 10%;
+  left: 6%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.12) 0%, transparent 68%);
+  filter: blur(48px);
+  animation: orbBreathingAlt 20s ease-in-out infinite;
+}
+
+.cinematic-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cp-1 {
+  width: 6px;
+  height: 6px;
+  top: 18%;
+  left: 18%;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+  animation: particleShimmer 6s ease-in-out infinite;
+}
+
+.cp-2 {
+  width: 6px;
+  height: 6px;
+  top: 50%;
+  right: 15%;
+  background-color: #9e1245;
+  box-shadow: 0 0 10px #9e1245;
+  animation: particleShimmer 7s ease-in-out infinite 2s;
+}
+
+.cp-3 {
+  width: 5px;
+  height: 5px;
+  top: 75%;
+  left: 38%;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 9px #0ea5e9;
+  animation: particleShimmer 6s ease-in-out infinite 1s;
+}
+
+.cp-4 {
+  width: 5px;
+  height: 5px;
+  top: 30%;
+  right: 36%;
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: particleShimmer 8s ease-in-out infinite 3s;
+}
+
+.video-frame-accent {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(11, 37, 69, 0.22);
+  pointer-events: none;
+}
+
+.video-frame-tl { top: 25px; left: 25px; border-right: none; border-bottom: none; }
+.video-frame-tr { top: 25px; right: 25px; border-left: none; border-bottom: none; }
+.video-frame-bl { bottom: 25px; left: 25px; border-right: none; border-top: none; }
+.video-frame-br { bottom: 25px; right: 25px; border-left: none; border-top: none; }
+
+/* --------------------------------------------------------------------------
+   Why SPAN Section Atmosphere (Industrial Synergy Mesh)
+   -------------------------------------------------------------------------- */
+.whyspan-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.whyspan-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(11, 37, 69, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(45deg, rgba(2, 132, 199, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(2, 132, 199, 0.03) 25%, transparent 25%);
+  background-size: 32px 32px, 64px 64px, 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 45%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, #000 45%, transparent 85%);
+}
+
+.whyspan-orb-berry {
+  position: absolute;
+  top: -80px;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.14) 0%, transparent 68%);
+  filter: blur(55px);
+  animation: orbBreathingSlow 20s ease-in-out infinite;
+}
+
+.whyspan-orb-teal {
+  position: absolute;
+  bottom: -60px;
+  right: 15%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 68%);
+  filter: blur(50px);
+  animation: orbBreathingAlt 22s ease-in-out infinite;
+}
+
+.whyspan-ring {
+  position: absolute;
+  top: 25%;
+  right: -50px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(2, 132, 199, 0.22);
+  animation: ringRotateSlow 120s linear infinite;
+}
+
+.whyspan-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 16s ease-in-out infinite;
+}
+
+.whyspan-bubble.wb-1 {
+  top: 18%;
+  left: 10%;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(158, 18, 69, 0.35);
+  animation-duration: 17s;
+}
+
+.whyspan-bubble.wb-2 {
+  bottom: 22%;
+  right: 12%;
+  width: 36px;
+  height: 36px;
+  border: 1.5px dashed rgba(2, 132, 199, 0.3);
+  animation-duration: 21s;
+  animation-delay: -5s;
+}
+
+.whyspan-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleShimmer 8s ease-in-out infinite;
+}
+
+.whyspan-particle.wp-1 {
+  top: 25%;
+  left: 22%;
+  width: 6px;
+  height: 6px;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+}
+
+.whyspan-particle.wp-2 {
+  top: 60%;
+  right: 20%;
+  width: 7px;
+  height: 7px;
+  background-color: #9e1245;
+  box-shadow: 0 0 10px #9e1245;
+  animation-delay: -2s;
+}
+
+.whyspan-particle.wp-3 {
+  bottom: 20%;
+  left: 42%;
+  width: 6px;
+  height: 6px;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9;
+  animation-delay: -4s;
+}
+
+.whyspan-crosshair {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0284c7;
+  opacity: 0.3;
+}
+
+.wc-tl { top: 20px; left: 24px; }
+.wc-br { bottom: 20px; right: 24px; }
+
+/* --------------------------------------------------------------------------
+   Contact Section Atmosphere (Broadcast & Connectivity Waves)
+   -------------------------------------------------------------------------- */
+.contact-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.contact-radar-wave {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(2, 132, 199, 0.16);
+  pointer-events: none;
+}
+
+.contact-radar-wave.wave-1 {
+  width: 480px;
+  height: 480px;
+  animation: orbBreathingSlow 16s ease-in-out infinite;
+}
+
+.contact-radar-wave.wave-2 {
+  width: 720px;
+  height: 720px;
+  border-style: dashed;
+  animation: orbBreathingAlt 24s ease-in-out infinite;
+}
+
+.contact-glow-berry {
+  position: absolute;
+  top: 20%;
+  right: -60px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.15) 0%, transparent 68%);
+  filter: blur(55px);
+  animation: orbBreathingAlt 18s ease-in-out infinite;
+}
+
+.contact-glow-blue {
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.16) 0%, transparent 68%);
+  filter: blur(55px);
+  animation: orbBreathingSlow 22s ease-in-out infinite;
+}
+
+.contact-light-ray {
+  position: absolute;
+  top: -120px;
+  right: 30%;
+  width: 140px;
+  height: 900px;
+  transform: rotate(-35deg);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 132, 199, 0.14) 0%,
+    rgba(158, 18, 69, 0.08) 50%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  animation: beamSweepSlow 16s ease-in-out infinite alternate;
+}
+
+.contact-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 16s ease-in-out infinite;
+}
+
+.contact-bubble.cb-1 {
+  top: 15%;
+  right: 18%;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(158, 18, 69, 0.35);
+  animation-duration: 18s;
+}
+
+.contact-bubble.cb-2 {
+  bottom: 25%;
+  left: 14%;
+  width: 36px;
+  height: 36px;
+  border: 1.5px dashed rgba(2, 132, 199, 0.32);
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+
+.contact-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleShimmer 8s ease-in-out infinite;
+}
+
+.contact-particle.cp-1 {
+  top: 22%;
+  left: 20%;
+  width: 7px;
+  height: 7px;
+  background-color: #0284c7;
+  box-shadow: 0 0 10px #0284c7;
+}
+
+.contact-particle.cp-2 {
+  top: 48%;
+  right: 24%;
+  width: 7px;
+  height: 7px;
+  background-color: #9e1245;
+  box-shadow: 0 0 10px #9e1245;
+  animation-delay: -2s;
+}
+
+.contact-particle.cp-3 {
+  bottom: 20%;
+  right: 42%;
+  width: 6px;
+  height: 6px;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9;
+  animation-delay: -4s;
+}
+
+/* --------------------------------------------------------------------------
+   Blueprint Dots & Engineering Mesh Fallback
+   -------------------------------------------------------------------------- */
+.blueprint-dots-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(11, 37, 69, 0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Service Cards Refined Hover & Depth
+   -------------------------------------------------------------------------- */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 132, 199, 0.5) 50%, transparent 100%);
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 132, 199, 0.9) 50%, transparent 100%);
+}
+
+.service-card.highlight::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(158, 18, 69, 0.5) 50%, transparent 100%);
+}
+
+.service-card.highlight:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(158, 18, 69, 0.95) 50%, transparent 100%);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(11, 37, 69, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.25);
+}
+
+.service-card.highlight:hover {
+  box-shadow: 0 12px 28px -4px rgba(158, 18, 69, 0.12), 0 0 0 1px rgba(158, 18, 69, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive & Accessibility Accommodations
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-grid-mesh,
+  .about-tech-grid,
+  .video-light-mesh,
+  .whyspan-mesh {
+    background-size: 28px 28px;
+  }
+  .hero-light-beam-1,
+  .hero-light-beam-2,
+  .video-beam-left,
+  .video-beam-right,
+  .contact-light-ray {
+    display: none;
+  }
+  .hero-orb-primary,
+  .hero-orb-accent,
+  .about-orb-teal,
+  .about-orb-amber,
+  .whyspan-orb-berry,
+  .whyspan-orb-teal,
+  .contact-glow-berry,
+  .contact-glow-blue {
+    width: 280px;
+    height: 280px;
+    filter: blur(40px);
+  }
+  .services-ring-1,
+  .services-ring-2,
+  .about-geo-ring,
+  .whyspan-ring,
+  .contact-radar-wave.wave-2 {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb-primary,
+  .hero-orb-accent,
+  .hero-orb-amber,
+  .hero-light-beam-1,
+  .hero-light-beam-2,
+  .floating-bubble,
+  .glowing-particle,
+  .about-orb-teal,
+  .about-orb-amber,
+  .about-geo-ring,
+  .about-bubble,
+  .about-particle,
+  .services-quad-glow,
+  .services-ring-1,
+  .services-ring-2,
+  .services-bubble,
+  .services-particle,
+  .video-beam-left,
+  .video-beam-right,
+  .video-orb-cyan,
+  .video-orb-berry,
+  .cinematic-particle,
+  .whyspan-orb-berry,
+  .whyspan-orb-teal,
+  .whyspan-ring,
+  .whyspan-bubble,
+  .whyspan-particle,
+  .contact-radar-wave,
+  .contact-glow-berry,
+  .contact-glow-blue,
+  .contact-light-ray,
+  .contact-bubble,
+  .contact-particle {
+    animation: none !important;
+  }
+}

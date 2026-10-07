@@ -138,8 +138,29 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
 
   return (
-    <section id="services" className="section" aria-label="SPAN Core Services">
-      <div className="container">
+    <section id="services" className="section has-atmosphere" aria-label="SPAN Core Services">
+      {/* Background Visual Atmosphere (4-Spectrum Quadrant Glows, Dual Rotating Rings, Floating Bubbles & Particles) */}
+      <div className="services-atmosphere" aria-hidden="true">
+        <div className="services-radial-glow" />
+        <div className="services-quad-glow sq-cyan" />
+        <div className="services-quad-glow sq-berry" />
+        <div className="services-quad-glow sq-amber" />
+        <div className="services-quad-glow sq-sky" />
+        <div className="services-ring-1" />
+        <div className="services-ring-2" />
+        <div className="services-bubble sb-1" />
+        <div className="services-bubble sb-2" />
+        <div className="services-particle sp-1" />
+        <div className="services-particle sp-2" />
+        <div className="services-particle sp-3" />
+        <div className="services-particle sp-4" />
+        <div className="grid-crosshair crosshair-tl">+</div>
+        <div className="grid-crosshair crosshair-tr">+</div>
+        <div className="grid-crosshair crosshair-bl">+</div>
+        <div className="grid-crosshair crosshair-br">+</div>
+      </div>
+
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Four Core Verticals</span>
           <h2 className="section-title">Our Industrial & Business Services</h2>

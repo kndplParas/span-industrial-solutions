@@ -8,8 +8,62 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
   return (
-    <section id="home" className="hero-section" aria-label="SPAN Industrial Solutions Overview">
-      <div className="container">
+    <section id="home" className="hero-section has-atmosphere" aria-label="SPAN Industrial Solutions Overview">
+      {/* Background Visual Atmosphere (Architectural Grid, Luminous Orbs, Light Beams, Flowing Curves, Floating Rings & Particles) */}
+      <div className="hero-atmosphere" aria-hidden="true">
+        {/* Architectural Precision Engineering Grid */}
+        <div className="hero-grid-mesh" />
+
+        {/* Luminous Ambient Glowing Orbs */}
+        <div className="hero-orb-primary" />
+        <div className="hero-orb-accent" />
+        <div className="hero-orb-amber" />
+
+        {/* Diagonal Atmospheric Light Beams */}
+        <div className="hero-light-beam-1" />
+        <div className="hero-light-beam-2" />
+
+        {/* Crisp Flowing Engineering Contour Waves */}
+        <svg className="hero-curves-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="heroCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0284c7" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#9e1245" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.1" />
+            </linearGradient>
+            <linearGradient id="heroCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0b2545" stopOpacity="0.25" />
+              <stop offset="60%" stopColor="#0284c7" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#9e1245" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M -60 260 C 240 100, 500 440, 920 200 C 1200 60, 1380 320, 1540 180"
+            stroke="url(#heroCurveGrad1)"
+            strokeWidth="1.5"
+            strokeDasharray="6 8"
+          />
+          <path
+            d="M -40 390 C 320 280, 660 510, 1060 290 C 1300 170, 1440 350, 1540 270"
+            stroke="url(#heroCurveGrad2)"
+            strokeWidth="1.5"
+          />
+        </svg>
+
+        {/* Floating Geometric Rings / Bubbles */}
+        <div className="floating-bubble bubble-1" />
+        <div className="floating-bubble bubble-2" />
+        <div className="floating-bubble bubble-3" />
+
+        {/* Luminous Floating Particles */}
+        <div className="glowing-particle gp-1" />
+        <div className="glowing-particle gp-2" />
+        <div className="glowing-particle gp-3" />
+        <div className="glowing-particle gp-4" />
+        <div className="glowing-particle gp-5" />
+      </div>
+
+      <div className="container section-content-layer">
         <div className="hero-grid">
           {/* Left Column: Headline and Value Proposition */}
           <div className="hero-content">

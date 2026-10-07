@@ -98,6 +98,7 @@ export const WhySpan: React.FC = () => {
   ];
 
   return (
+<<<<<<< HEAD
     <section id="why-span" className="why-span-section" aria-label="Why Partner with SPAN">
       <div className="container">
         {/* SECTION INTRO */}
@@ -112,6 +113,28 @@ export const WhySpan: React.FC = () => {
           </h2>
 
           <p className="why-span-subtitle">
+=======
+    <section id="why-span" className="section section-alt has-atmosphere" aria-label="Why Partner with SPAN">
+      {/* Distinct Synergistic Atmosphere (Hexagonal Matrix, Dual Gradient Orbs, Floating Rings & Nodes) */}
+      <div className="whyspan-atmosphere" aria-hidden="true">
+        <div className="whyspan-mesh" />
+        <div className="whyspan-orb-berry" />
+        <div className="whyspan-orb-teal" />
+        <div className="whyspan-ring" />
+        <div className="whyspan-bubble wb-1" />
+        <div className="whyspan-bubble wb-2" />
+        <div className="whyspan-particle wp-1" />
+        <div className="whyspan-particle wp-2" />
+        <div className="whyspan-particle wp-3" />
+        <div className="whyspan-crosshair wc-tl">+</div>
+        <div className="whyspan-crosshair wc-br">+</div>
+      </div>
+      <div className="container section-content-layer">
+        <div className="section-header">
+          <span className="section-tag">Synergistic Value</span>
+          <h2 className="section-title">Why Partner with SPAN</h2>
+          <p className="section-subtitle">
+>>>>>>> 1f95ae8dbb9a1dc408b97b883c46d8d4dc61c49d
             By integrating workforce management, manufacturing cost optimization, technical training,
             and visual industrial communication under one ISO 9001:2015 certified partner, we provide
             cohesive support for long-term operational success.

@@ -171,8 +171,26 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
   };
 
   return (
-    <section id="contact" className="section" aria-label="Contact SPAN Industrial Solutions">
-      <div className="container">
+    <section id="contact" className="section has-atmosphere" aria-label="Contact SPAN Industrial Solutions">
+      {/* Background Visual Atmosphere (Connectivity Waves, Dual Luminous Glows, Pulse Particles) */}
+      <div className="contact-atmosphere" aria-hidden="true">
+        <div className="contact-radar-wave wave-1" />
+        <div className="contact-radar-wave wave-2" />
+        <div className="contact-glow-berry" />
+        <div className="contact-glow-blue" />
+        <div className="contact-light-ray" />
+        <div className="contact-bubble cb-1" />
+        <div className="contact-bubble cb-2" />
+        <div className="contact-particle cp-1" />
+        <div className="contact-particle cp-2" />
+        <div className="contact-particle cp-3" />
+        <div className="grid-crosshair crosshair-tl">+</div>
+        <div className="grid-crosshair crosshair-tr">+</div>
+        <div className="grid-crosshair crosshair-bl">+</div>
+        <div className="grid-crosshair crosshair-br">+</div>
+      </div>
+
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Direct Communication</span>
           <h2 className="section-title">Contact SPAN Industrial Solutions</h2>
