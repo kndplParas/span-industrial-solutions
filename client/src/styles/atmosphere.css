@@ -1,0 +1,497 @@
+/* ==========================================================================
+   SPAN Industrial Solutions - Subtle Ambient Atmosphere & Visual Background System
+   Clean, Elegant, Corporate & Industrial Depth Effects
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container & Layering Helpers
+   -------------------------------------------------------------------------- */
+.has-atmosphere {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-content-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.atmosphere-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframe Animations (Ultra-Smooth, Slow, GPU-Accelerated)
+   -------------------------------------------------------------------------- */
+@keyframes orbFloatSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -18px, 0) scale(1.06);
+  }
+}
+
+@keyframes orbFloatAlt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-20px, 22px, 0) scale(0.95);
+  }
+}
+
+@keyframes particleDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate3d(15px, -25px, 0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(-10px, -50px, 0);
+    opacity: 0.15;
+  }
+}
+
+@keyframes rayPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: rotate(-15deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: rotate(-14deg) scaleY(1.05);
+  }
+}
+
+@keyframes sparkleGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes cinematicStreak {
+  0% {
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate3d(60px, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero Atmosphere Elements
+   -------------------------------------------------------------------------- */
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Soft Glowing Orbs in Hero */
+.hero-orb-primary {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(11, 37, 69, 0.03) 50%, transparent 70%);
+  filter: blur(60px);
+  animation: orbFloatSlow 22s ease-in-out infinite;
+}
+
+.hero-orb-accent {
+  position: absolute;
+  bottom: -100px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158, 18, 69, 0.06) 0%, rgba(11, 37, 69, 0.02) 55%, transparent 75%);
+  filter: blur(55px);
+  animation: orbFloatAlt 26s ease-in-out infinite;
+}
+
+.hero-orb-center {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(241, 245, 249, 0.4) 45%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Soft Diagonal Light Rays in Hero */
+.hero-light-rays {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 70%;
+  height: 140%;
+  transform: rotate(-15deg);
+  transform-origin: top right;
+  opacity: 0.55;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(224, 242, 254, 0.25) 20%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 80%
+  );
+  filter: blur(25px);
+  animation: rayPulse 16s ease-in-out infinite alternate;
+}
+
+/* Faint Engineering Circuit & Wave SVG Lines */
+.hero-curves-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  color: #0b2545;
+}
+
+/* Floating Particles (Dots) */
+.ambient-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: #0284c7;
+  opacity: 0.3;
+}
+
+.hero-particle-1 {
+  width: 4px;
+  height: 4px;
+  top: 25%;
+  left: 15%;
+  animation: particleDrift 14s ease-in-out infinite;
+}
+
+.hero-particle-2 {
+  width: 6px;
+  height: 6px;
+  top: 45%;
+  right: 20%;
+  background-color: #9e1245;
+  opacity: 0.25;
+  animation: particleDrift 18s ease-in-out infinite 2s;
+}
+
+.hero-particle-3 {
+  width: 3px;
+  height: 3px;
+  top: 70%;
+  left: 35%;
+  animation: particleDrift 16s ease-in-out infinite 4s;
+}
+
+.hero-particle-4 {
+  width: 5px;
+  height: 5px;
+  top: 15%;
+  right: 40%;
+  opacity: 0.2;
+  animation: particleDrift 20s ease-in-out infinite 1s;
+}
+
+/* --------------------------------------------------------------------------
+   Services Atmosphere Elements
+   -------------------------------------------------------------------------- */
+.services-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Faint Floating Geometry Rings in Services */
+.services-ring-1 {
+  position: absolute;
+  top: 5%;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px dashed rgba(11, 37, 69, 0.08);
+  animation: ringRotate 120s linear infinite;
+}
+
+.services-ring-2 {
+  position: absolute;
+  bottom: 8%;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 132, 199, 0.07);
+}
+
+.services-radial-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(2, 132, 199, 0.04) 0%, rgba(248, 250, 252, 0) 70%);
+  filter: blur(50px);
+}
+
+/* Industrial Precision Corner Crosshairs (+) */
+.grid-crosshair {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0.18;
+  color: #0b2545;
+}
+
+.crosshair-tl { top: 24px; left: 32px; }
+.crosshair-tr { top: 24px; right: 32px; }
+.crosshair-bl { bottom: 24px; left: 32px; }
+.crosshair-br { bottom: 24px; right: 32px; }
+
+/* --------------------------------------------------------------------------
+   Video Solutions Section Atmosphere (Cinematic Lighting)
+   -------------------------------------------------------------------------- */
+.video-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Cinematic Diagonal Light Streaks */
+.video-beam-left {
+  position: absolute;
+  top: -30%;
+  left: -15%;
+  width: 50%;
+  height: 160%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.06) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(56, 189, 248, 0.06) 55%,
+    transparent 100%
+  );
+  filter: blur(35px);
+  animation: rayPulse 18s ease-in-out infinite alternate;
+}
+
+.video-beam-right {
+  position: absolute;
+  bottom: -40%;
+  right: -10%;
+  width: 55%;
+  height: 150%;
+  transform: rotate(-30deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(158, 18, 69, 0.08) 40%,
+    rgba(56, 189, 248, 0.05) 55%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  animation: rayPulse 22s ease-in-out infinite alternate-reverse;
+}
+
+/* Subtle Cinematic Dust / Sparkle Points */
+.cinematic-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.cp-1 {
+  width: 3px;
+  height: 3px;
+  top: 20%;
+  left: 22%;
+  opacity: 0.45;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+  animation: sparkleGlow 6s ease-in-out infinite;
+}
+
+.cp-2 {
+  width: 4px;
+  height: 4px;
+  top: 55%;
+  right: 18%;
+  opacity: 0.35;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  animation: sparkleGlow 8s ease-in-out infinite 3s;
+}
+
+.cp-3 {
+  width: 2px;
+  height: 2px;
+  top: 75%;
+  left: 45%;
+  opacity: 0.5;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.7);
+  animation: sparkleGlow 5s ease-in-out infinite 1.5s;
+}
+
+.cp-4 {
+  width: 3px;
+  height: 3px;
+  top: 35%;
+  right: 40%;
+  opacity: 0.3;
+  animation: sparkleGlow 7s ease-in-out infinite 2s;
+}
+
+/* Subtle Film / Viewfinder Grid Accents in Video Section */
+.video-frame-accent {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+.video-frame-tl { top: 30px; left: 30px; border-right: none; border-bottom: none; }
+.video-frame-tr { top: 30px; right: 30px; border-left: none; border-bottom: none; }
+.video-frame-bl { bottom: 30px; left: 30px; border-right: none; border-top: none; }
+.video-frame-br { bottom: 30px; right: 30px; border-left: none; border-top: none; }
+
+/* --------------------------------------------------------------------------
+   About & Why SPAN Subtle Patterns
+   -------------------------------------------------------------------------- */
+.blueprint-dots-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(11, 37, 69, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Enhanced Service Cards Subtle Glow & Hover State
+   -------------------------------------------------------------------------- */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Subtle top gradient reflection line on cards */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 132, 199, 0.25) 50%, transparent 100%);
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 132, 199, 0.6) 50%, transparent 100%);
+}
+
+.service-card.highlight::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(158, 18, 69, 0.4) 50%, transparent 100%);
+}
+
+.service-card.highlight:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(158, 18, 69, 0.75) 50%, transparent 100%);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.09), 0 0 0 1px rgba(2, 132, 199, 0.15);
+}
+
+.service-card.highlight:hover {
+  box-shadow: 0 10px 24px -4px rgba(158, 18, 69, 0.08), 0 0 0 1px rgba(158, 18, 69, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive & Accessibility Accommodations
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-orb-primary,
+  .hero-orb-accent {
+    filter: blur(40px);
+    width: 280px;
+    height: 280px;
+  }
+  .hero-light-rays {
+    display: none;
+  }
+  .services-ring-1,
+  .services-ring-2 {
+    display: none;
+  }
+  .ambient-particle:nth-child(even) {
+    display: none;
+  }
+  .video-beam-left,
+  .video-beam-right {
+    filter: blur(25px);
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb-primary,
+  .hero-orb-accent,
+  .hero-light-rays,
+  .ambient-particle,
+  .services-ring-1,
+  .video-beam-left,
+  .video-beam-right,
+  .cinematic-particle {
+    animation: none !important;
+  }
+}

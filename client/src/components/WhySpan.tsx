@@ -49,8 +49,9 @@ export const WhySpan: React.FC = () => {
   ];
 
   return (
-    <section id="why-span" className="section section-alt" aria-label="Why Partner with SPAN">
-      <div className="container">
+    <section id="why-span" className="section section-alt has-atmosphere" aria-label="Why Partner with SPAN">
+      <div className="blueprint-dots-bg" aria-hidden="true" />
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Synergistic Value</span>
           <h2 className="section-title">Why Partner with SPAN</h2>

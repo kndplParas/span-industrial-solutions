@@ -138,8 +138,21 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
 
   return (
-    <section id="services" className="section" aria-label="SPAN Core Services">
-      <div className="container">
+    <section id="services" className="section has-atmosphere" aria-label="SPAN Core Services">
+      {/* Background Visual Atmosphere (Subtle floating rings, radial glow, precision crosshairs) */}
+      <div className="services-atmosphere" aria-hidden="true">
+        <div className="services-radial-glow" />
+        <div className="services-ring-1" />
+        <div className="services-ring-2" />
+        <div className="grid-crosshair crosshair-tl">+</div>
+        <div className="grid-crosshair crosshair-tr">+</div>
+        <div className="grid-crosshair crosshair-bl">+</div>
+        <div className="grid-crosshair crosshair-br">+</div>
+        <div className="ambient-particle hero-particle-1" style={{ top: '15%', left: '8%', opacity: 0.2 }} />
+        <div className="ambient-particle hero-particle-3" style={{ top: '80%', right: '12%', opacity: 0.15 }} />
+      </div>
+
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Four Core Verticals</span>
           <h2 className="section-title">Our Industrial & Business Services</h2>

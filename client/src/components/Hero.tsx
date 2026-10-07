@@ -8,8 +8,39 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
   return (
-    <section id="home" className="hero-section" aria-label="SPAN Industrial Solutions Overview">
-      <div className="container">
+    <section id="home" className="hero-section has-atmosphere" aria-label="SPAN Industrial Solutions Overview">
+      {/* Background Visual Atmosphere (Subtle glowing orbs, light rays, flowing curves, drifting particles) */}
+      <div className="hero-atmosphere" aria-hidden="true">
+        <div className="hero-orb-primary" />
+        <div className="hero-orb-accent" />
+        <div className="hero-orb-center" />
+        <div className="hero-light-rays" />
+
+        {/* Faint flowing geometric curves */}
+        <svg className="hero-curves-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <path
+            d="M -100 280 C 260 120, 520 460, 960 220 C 1220 70, 1400 340, 1600 200"
+            stroke="currentColor"
+            strokeWidth="0.75"
+            strokeDasharray="4 6"
+            opacity="0.22"
+          />
+          <path
+            d="M -50 420 C 340 310, 680 540, 1100 320 C 1320 200, 1460 380, 1600 300"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.15"
+          />
+        </svg>
+
+        {/* Soft drifting ambient particles */}
+        <div className="ambient-particle hero-particle-1" />
+        <div className="ambient-particle hero-particle-2" />
+        <div className="ambient-particle hero-particle-3" />
+        <div className="ambient-particle hero-particle-4" />
+      </div>
+
+      <div className="container section-content-layer">
         <div className="hero-grid">
           {/* Left Column: Headline and Value Proposition */}
           <div className="hero-content">

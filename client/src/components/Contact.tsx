@@ -171,8 +171,15 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
   };
 
   return (
-    <section id="contact" className="section" aria-label="Contact SPAN Industrial Solutions">
-      <div className="container">
+    <section id="contact" className="section has-atmosphere" aria-label="Contact SPAN Industrial Solutions">
+      {/* Background Visual Atmosphere (Subtle radial glow, crosshairs) */}
+      <div className="services-atmosphere" aria-hidden="true">
+        <div className="services-radial-glow" style={{ top: '60%', width: '500px', height: '400px', opacity: 0.8 }} />
+        <div className="grid-crosshair crosshair-tl">+</div>
+        <div className="grid-crosshair crosshair-tr">+</div>
+      </div>
+
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Direct Communication</span>
           <h2 className="section-title">Contact SPAN Industrial Solutions</h2>

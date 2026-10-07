@@ -12,8 +12,9 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section section-alt" aria-label="About SPAN Industrial Solutions">
-      <div className="container">
+    <section id="about" className="section section-alt has-atmosphere" aria-label="About SPAN Industrial Solutions">
+      <div className="blueprint-dots-bg" aria-hidden="true" style={{ opacity: 0.45 }} />
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Corporate Profile</span>
           <h2 className="section-title">About SPAN Industrial Solutions</h2>

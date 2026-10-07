@@ -62,8 +62,22 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
   ];
 
   return (
-    <section id="video-solutions" className="video-section" aria-label="Industrial Video Solutions">
-      <div className="container">
+    <section id="video-solutions" className="video-section has-atmosphere" aria-label="Industrial Video Solutions">
+      {/* Background Visual Atmosphere (Cinematic light beams, soft dust sparkles, viewfinder frame markers) */}
+      <div className="video-atmosphere" aria-hidden="true">
+        <div className="video-beam-left" />
+        <div className="video-beam-right" />
+        <div className="cinematic-particle cp-1" />
+        <div className="cinematic-particle cp-2" />
+        <div className="cinematic-particle cp-3" />
+        <div className="cinematic-particle cp-4" />
+        <div className="video-frame-accent video-frame-tl" />
+        <div className="video-frame-accent video-frame-tr" />
+        <div className="video-frame-accent video-frame-bl" />
+        <div className="video-frame-accent video-frame-br" />
+      </div>
+
+      <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">New Capability Showcase</span>
           <h2 className="section-title">Industrial / Corporate Video Solutions</h2>
