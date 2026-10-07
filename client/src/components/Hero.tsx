@@ -9,35 +9,58 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
   return (
     <section id="home" className="hero-section has-atmosphere" aria-label="SPAN Industrial Solutions Overview">
-      {/* Background Visual Atmosphere (Subtle glowing orbs, light rays, flowing curves, drifting particles) */}
+      {/* Background Visual Atmosphere (Architectural Grid, Luminous Orbs, Light Beams, Flowing Curves, Floating Rings & Particles) */}
       <div className="hero-atmosphere" aria-hidden="true">
+        {/* Architectural Precision Engineering Grid */}
+        <div className="hero-grid-mesh" />
+
+        {/* Luminous Ambient Glowing Orbs */}
         <div className="hero-orb-primary" />
         <div className="hero-orb-accent" />
-        <div className="hero-orb-center" />
-        <div className="hero-light-rays" />
+        <div className="hero-orb-amber" />
 
-        {/* Faint flowing geometric curves */}
+        {/* Diagonal Atmospheric Light Beams */}
+        <div className="hero-light-beam-1" />
+        <div className="hero-light-beam-2" />
+
+        {/* Crisp Flowing Engineering Contour Waves */}
         <svg className="hero-curves-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="heroCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0284c7" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#9e1245" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.1" />
+            </linearGradient>
+            <linearGradient id="heroCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0b2545" stopOpacity="0.25" />
+              <stop offset="60%" stopColor="#0284c7" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#9e1245" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
           <path
-            d="M -100 280 C 260 120, 520 460, 960 220 C 1220 70, 1400 340, 1600 200"
-            stroke="currentColor"
-            strokeWidth="0.75"
-            strokeDasharray="4 6"
-            opacity="0.22"
+            d="M -60 260 C 240 100, 500 440, 920 200 C 1200 60, 1380 320, 1540 180"
+            stroke="url(#heroCurveGrad1)"
+            strokeWidth="1.5"
+            strokeDasharray="6 8"
           />
           <path
-            d="M -50 420 C 340 310, 680 540, 1100 320 C 1320 200, 1460 380, 1600 300"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            opacity="0.15"
+            d="M -40 390 C 320 280, 660 510, 1060 290 C 1300 170, 1440 350, 1540 270"
+            stroke="url(#heroCurveGrad2)"
+            strokeWidth="1.5"
           />
         </svg>
 
-        {/* Soft drifting ambient particles */}
-        <div className="ambient-particle hero-particle-1" />
-        <div className="ambient-particle hero-particle-2" />
-        <div className="ambient-particle hero-particle-3" />
-        <div className="ambient-particle hero-particle-4" />
+        {/* Floating Geometric Rings / Bubbles */}
+        <div className="floating-bubble bubble-1" />
+        <div className="floating-bubble bubble-2" />
+        <div className="floating-bubble bubble-3" />
+
+        {/* Luminous Floating Particles */}
+        <div className="glowing-particle gp-1" />
+        <div className="glowing-particle gp-2" />
+        <div className="glowing-particle gp-3" />
+        <div className="glowing-particle gp-4" />
+        <div className="glowing-particle gp-5" />
       </div>
 
       <div className="container section-content-layer">
