@@ -13,7 +13,21 @@ export const About: React.FC = () => {
 
   return (
     <section id="about" className="section section-alt has-atmosphere" aria-label="About SPAN Industrial Solutions">
-      <div className="blueprint-dots-bg" aria-hidden="true" style={{ opacity: 0.45 }} />
+      {/* Distinct Corporate Engineering Atmosphere (Blueprint Grid, Dual Orbs, ISO Standard Rings, Luminous Shimmer) */}
+      <div className="about-atmosphere" aria-hidden="true">
+        <div className="about-tech-grid" />
+        <div className="about-orb-teal" />
+        <div className="about-orb-amber" />
+        <div className="about-geo-ring ring-1" />
+        <div className="about-geo-ring ring-2" />
+        <div className="about-bubble ab-1" />
+        <div className="about-bubble ab-2" />
+        <div className="about-particle ap-1" />
+        <div className="about-particle ap-2" />
+        <div className="about-particle ap-3" />
+        <div className="about-crosshair ac-tl">+</div>
+        <div className="about-crosshair ac-br">+</div>
+      </div>
       <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Corporate Profile</span>

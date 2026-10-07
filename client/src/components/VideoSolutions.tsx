@@ -63,10 +63,13 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
 
   return (
     <section id="video-solutions" className="video-section has-atmosphere" aria-label="Industrial Video Solutions">
-      {/* Background Visual Atmosphere (Cinematic light beams, soft dust sparkles, viewfinder frame markers) */}
+      {/* Background Visual Atmosphere (Studio Grid, Light Prism Beams, Viewfinder Accents & Particles) */}
       <div className="video-atmosphere" aria-hidden="true">
+        <div className="video-light-mesh" />
         <div className="video-beam-left" />
         <div className="video-beam-right" />
+        <div className="video-orb-cyan" />
+        <div className="video-orb-berry" />
         <div className="cinematic-particle cp-1" />
         <div className="cinematic-particle cp-2" />
         <div className="cinematic-particle cp-3" />
@@ -91,7 +94,7 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
         <div className="video-contrast-box">
           <div className="contrast-col problem">
             <h4>
-              <AlertCircle size={20} color="#f87171" />
+              <AlertCircle size={20} color="#dc2626" />
               <span>The Industrial Challenge</span>
             </h4>
             <p>
@@ -103,7 +106,7 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
 
           <div className="contrast-col solution">
             <h4>
-              <CheckCircle size={20} color="#38bdf8" />
+              <CheckCircle size={20} color="#0284c7" />
               <span>The SPAN Solution</span>
             </h4>
             <p>
@@ -128,10 +131,10 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
 
         {/* Video Formats Grid */}
         <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-          <h3 style={{ fontSize: '1.25rem', color: '#ffffff', fontWeight: 700 }}>
+          <h3 style={{ fontSize: '1.25rem', color: '#0b2545', fontWeight: 700 }}>
             Specialized Video Formats We Deliver
           </h3>
-          <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
             Built specifically to meet engineering compliance and business presentation demands:
           </p>
         </div>
@@ -149,7 +152,7 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
         <div className="video-cta-wrap">
           <button
             type="button"
-            className="btn btn-white"
+            className="btn btn-primary"
             onClick={() => onDiscussVideo('Industrial / Corporate Video Solutions')}
           >
             <Video size={16} />

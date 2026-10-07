@@ -50,7 +50,20 @@ export const WhySpan: React.FC = () => {
 
   return (
     <section id="why-span" className="section section-alt has-atmosphere" aria-label="Why Partner with SPAN">
-      <div className="blueprint-dots-bg" aria-hidden="true" />
+      {/* Distinct Synergistic Atmosphere (Hexagonal Matrix, Dual Gradient Orbs, Floating Rings & Nodes) */}
+      <div className="whyspan-atmosphere" aria-hidden="true">
+        <div className="whyspan-mesh" />
+        <div className="whyspan-orb-berry" />
+        <div className="whyspan-orb-teal" />
+        <div className="whyspan-ring" />
+        <div className="whyspan-bubble wb-1" />
+        <div className="whyspan-bubble wb-2" />
+        <div className="whyspan-particle wp-1" />
+        <div className="whyspan-particle wp-2" />
+        <div className="whyspan-particle wp-3" />
+        <div className="whyspan-crosshair wc-tl">+</div>
+        <div className="whyspan-crosshair wc-br">+</div>
+      </div>
       <div className="container section-content-layer">
         <div className="section-header">
           <span className="section-tag">Synergistic Value</span>
