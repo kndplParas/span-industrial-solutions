@@ -1,13 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="47.5" fill="#ffffff" stroke="#1a4d2e" stroke-width="4.5" />
   <defs>
     <clipPath id="span-circle-clip">
-      <circle cx="50" cy="50" r="48" />
+      <circle cx="50" cy="50" r="32" />
     </clipPath>
   </defs>
-  <circle cx="50" cy="50" r="48" fill="#9e1245" />
+  <circle cx="50" cy="50" r="32" fill="#9e1245" />
   <g clip-path="url(#span-circle-clip)">
-    <path d="M 10 38 Q 50 16 90 38" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
-    <path d="M 5 56 Q 50 32 95 56" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
-    <path d="M 8 74 Q 50 48 92 74" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 22 41 Q 50 26 78 41" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M 18 53 Q 50 37 82 53" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M 20 65 Q 50 48 80 65" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" />
   </g>
 </svg>
