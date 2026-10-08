@@ -180,14 +180,7 @@
   animation: beamSweepSlow 18s ease-in-out infinite alternate-reverse;
 }
 
-/* 4. Flowing Curves SVG */
-.hero-curves-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
+
 
 /* 5. Floating Geometric Rings / Bubbles */
 .floating-bubble {
