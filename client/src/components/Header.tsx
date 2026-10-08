@@ -4,6 +4,42 @@ import { SpanLogo } from './SpanLogo';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      // 1. Header elevation blur state
+      setIsScrolled(window.scrollY > 15);
+
+      // 2. Scrollspy active section detection
+      const scrollPos = window.scrollY + 100;
+      const sections = [
+        { id: 'home', target: 'home' },
+        { id: 'about', target: 'about' },
+        { id: 'services', target: 'services' },
+        { id: 'video-solutions', target: 'services' }, // Map to services vertical
+        { id: 'why-span', target: 'why-span' },
+        { id: 'contact', target: 'contact' },
+      ];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const item = sections[i];
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            setActiveSection(item.target);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
@@ -26,7 +62,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="header" role="banner">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`} role="banner">
       <div className="container">
         <div className="header-inner">
           {/* Brand */}
@@ -46,7 +82,8 @@ export const Header: React.FC = () => {
           <nav className="nav-desktop" aria-label="Main Navigation">
             <a
               href="#home"
-              className="nav-link"
+              className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
+              aria-current={activeSection === 'home' ? 'page' : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('home');
@@ -56,7 +93,8 @@ export const Header: React.FC = () => {
             </a>
             <a
               href="#about"
-              className="nav-link"
+              className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+              aria-current={activeSection === 'about' ? 'page' : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('about');
@@ -66,7 +104,8 @@ export const Header: React.FC = () => {
             </a>
             <a
               href="#services"
-              className="nav-link"
+              className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
+              aria-current={activeSection === 'services' ? 'page' : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('services');
@@ -76,7 +115,8 @@ export const Header: React.FC = () => {
             </a>
             <a
               href="#why-span"
-              className="nav-link"
+              className={`nav-link ${activeSection === 'why-span' ? 'active' : ''}`}
+              aria-current={activeSection === 'why-span' ? 'page' : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('why-span');
@@ -117,49 +157,53 @@ export const Header: React.FC = () => {
           <li>
             <a
               href="#home"
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'home' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('home');
               }}
             >
-              Home
+              <span>Home</span>
+              {activeSection === 'home' && <span className="mobile-nav-dot" />}
             </a>
           </li>
           <li>
             <a
               href="#about"
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'about' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('about');
               }}
             >
-              About SPAN
+              <span>About SPAN</span>
+              {activeSection === 'about' && <span className="mobile-nav-dot" />}
             </a>
           </li>
           <li>
             <a
               href="#services"
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'services' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('services');
               }}
             >
-              Our 4 Core Services
+              <span>Our Services</span>
+              {activeSection === 'services' && <span className="mobile-nav-dot" />}
             </a>
           </li>
           <li>
             <a
               href="#why-span"
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === 'why-span' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('why-span');
               }}
             >
-              Why Choose SPAN
+              <span>Why Choose SPAN</span>
+              {activeSection === 'why-span' && <span className="mobile-nav-dot" />}
             </a>
           </li>
         </ul>
