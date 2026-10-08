@@ -18,10 +18,7 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
   const displayCorporate = showSubtitle !== undefined ? showSubtitle : showCorporateName;
   const isLight = variant === 'light';
 
-  // Exact brand colors from official logo & user screenshot
-  const greenBorderColor = '#1a4d2e';
-  const markBerryColor = '#9e1245';
-  const wordmarkColor = '#374151';
+  // Text colors based on light/dark mode
   const corporateTextColor = isLight ? '#ffffff' : '#0b2545';
   const badgeTextColor = isLight ? '#cbd5e1' : '#475569';
 
@@ -39,7 +36,7 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
         userSelect: 'none',
       }}
     >
-      {/* 1. Official SPAN Circular Seal Emblem with Dark Green Ring Border */}
+      {/* 1. Official SPAN Circular Seal Emblem from official logo */}
       <div
         className="span-emblem-seal"
         style={{
@@ -55,76 +52,22 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
             : '0 1px 4px rgba(11, 37, 69, 0.08)',
           flexShrink: 0,
           boxSizing: 'border-box',
+          overflow: 'hidden',
         }}
       >
-        <svg
+        <img
+          src="/span-logo.png"
+          alt="SPAN Industrial Solutions Emblem"
           width={badgeSize}
           height={badgeSize}
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          style={{ display: 'block', overflow: 'hidden', borderRadius: '50%' }}
-        >
-          {/* Outer Dark Green Circle Ring */}
-          <circle
-            cx="50"
-            cy="50"
-            r="46.5"
-            fill="#ffffff"
-            stroke={greenBorderColor}
-            strokeWidth="3.2"
-          />
-
-          {/* Berry Red Circular Badge with 3 White Bridge Arches */}
-          <defs>
-            <clipPath id="span-inner-badge-clip">
-              <circle cx="34" cy="50" r="13" />
-            </clipPath>
-          </defs>
-          <circle cx="34" cy="50" r="13" fill={markBerryColor} />
-          <g clipPath="url(#span-inner-badge-clip)">
-            {/* Top bridge arch */}
-            <path
-              d="M 23 45 Q 34 38 45 45"
-              stroke="#ffffff"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            {/* Middle bridge arch */}
-            <path
-              d="M 22 51 Q 34 44 46 51"
-              stroke="#ffffff"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            {/* Lower bridge arch */}
-            <path
-              d="M 23 57 Q 34 50 45 57"
-              stroke="#ffffff"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </g>
-
-          {/* Lowercase 'span' wordmark - comfortably centered inside the green circle with safe margins */}
-          <text
-            x="51"
-            y="55.5"
-            textLength="28"
-            lengthAdjust="spacingAndGlyphs"
-            fill={wordmarkColor}
-            fontFamily="'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-            fontSize="17"
-            fontWeight="700"
-            letterSpacing="-0.5"
-          >
-            span
-          </text>
-        </svg>
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            borderRadius: '50%',
+            display: 'block',
+          }}
+        />
       </div>
 
       {/* 2. Full Corporate Name & ISO Certification */}
