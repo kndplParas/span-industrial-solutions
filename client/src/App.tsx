@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { TrustMetricsBar } from './components/TrustMetricsBar';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { VideoSolutions } from './components/VideoSolutions';
@@ -63,6 +64,9 @@ export const App: React.FC = () => {
           onExploreServices={() => scrollToSection('services')}
           onContact={() => scrollToSection('contact')}
         />
+
+        {/* Industry Sectors & Operational Impact Metrics Bar */}
+        <TrustMetricsBar />
 
         {/* About Section */}
         <About />
