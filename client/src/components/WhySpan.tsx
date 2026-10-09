@@ -4,7 +4,6 @@ import {
   Wrench,
   UserCheck,
   Users,
-  TrendingDown,
   GraduationCap,
   Video,
 } from 'lucide-react';
@@ -32,19 +31,14 @@ export const WhySpan: React.FC = () => {
       desc: 'From technical candidate screening to precise job matching, we draw upon proven staffing modes to provide reliable manpower solutions.',
     },
     {
-      icon: <TrendingDown size={22} />,
-      title: 'Structured Cost Reduction (GET SHRINK)',
-      desc: 'Systematic targeting of hidden operational wastes across raw materials, power, manpower, overheads, and quality costs.',
-    },
-    {
       icon: <GraduationCap size={22} />,
       title: 'Practical Shop-Floor Training',
-      desc: 'Hands-on curriculum spanning Kaizen, 5S, 7QC Tools, GD&T, and APQP to institutionalize discipline within internal engineering teams.',
+      desc: 'Hands-on curriculum covering continuous improvement, workplace organization, quality tools, and machine drawings to build real discipline in engineering teams.',
     },
     {
       icon: <Video size={22} />,
-      title: 'Technical Visual Communication',
-      desc: 'Bridging the clarity gap by translating intricate plant procedures and safety directives into clear, professional corporate and industrial videos.',
+      title: 'Self-Paced Learning Solutions',
+      desc: 'With Self-Paced Learning as the primary objective, we convert complex shop-floor procedures, machinery operations, and safety protocols into modular on-demand learning assets for lasting worker mastery.',
     },
   ];
 
@@ -70,7 +64,7 @@ export const WhySpan: React.FC = () => {
           <h2 className="section-title">Why Partner with SPAN</h2>
           <p className="section-subtitle">
             By integrating workforce management, manufacturing cost optimization, technical training,
-            and visual industrial communication under one ISO 9001:2015 certified partner, we provide
+            and Self-Paced Learning solutions under one ISO 9001:2015 certified partner, we provide
             cohesive support for long-term operational success.
           </p>
         </div>

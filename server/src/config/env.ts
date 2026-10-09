@@ -5,9 +5,23 @@ import path from 'path';
 dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 
+const isProduction = process.env.NODE_ENV === 'production';
+const rawDatabaseUrl = process.env.DATABASE_URL?.trim();
+
+// Enforce mandatory DATABASE_URL in production mode without falling back to localhost
+if (isProduction && !rawDatabaseUrl) {
+  throw new Error(
+    'Configuration Error: DATABASE_URL environment variable is required in production mode. ' +
+    'Please configure a valid PostgreSQL connection string.'
+  );
+}
+
 export const config = {
   port: parseInt(process.env.PORT || '5000', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
-  corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:5173',
-  databaseUrl: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/spandb',
+  corsOrigin: process.env.CORS_ORIGIN || (isProduction ? '' : 'http://localhost:5173'),
+  databaseUrl: rawDatabaseUrl || 'postgresql://postgres:postgres@localhost:5432/spandb',
+  databaseSsl: process.env.DATABASE_SSL,
+  databaseSslCa: process.env.DATABASE_SSL_CA,
+  databaseSslRejectUnauthorized: process.env.DATABASE_SSL_REJECT_UNAUTHORIZED,
 };

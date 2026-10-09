@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { validateInquiry } from '../validators/inquiryValidator.js';
 import { processInquiry } from '../services/inquiryService.js';
 import { isDatabaseConnected } from '../config/db.js';
+import { config } from '../config/env.js';
 import type { ApiResponse, InquiryRecord } from '../types/inquiry.js';
 import { logger } from '../utils/logger.js';
 
@@ -21,6 +22,16 @@ export async function createInquiry(
       return;
     }
 
+    // In production, prevent acceptance if database is disconnected
+    if (config.nodeEnv === 'production' && !isDatabaseConnected()) {
+      logger.error('Inquiry submission rejected: database is offline in production.');
+      res.status(503).json({
+        success: false,
+        message: 'Inquiry service is temporarily unavailable. Please try again in a few moments or email us directly at sales@spansol.com.',
+      });
+      return;
+    }
+
     const savedRecord = await processInquiry(validation.sanitizedData);
 
     res.status(201).json({
@@ -30,9 +41,12 @@ export async function createInquiry(
     });
   } catch (error: any) {
     logger.error('Error handling inquiry submission:', error.message);
-    res.status(500).json({
+    const statusCode = config.nodeEnv === 'production' ? 503 : 500;
+    res.status(statusCode).json({
       success: false,
-      message: 'Failed to process inquiry. Please try again or contact us directly at sales@spansol.com.',
+      message: config.nodeEnv === 'production'
+        ? 'Inquiry service is temporarily unavailable. Please try again in a few moments or email us directly at sales@spansol.com.'
+        : 'Failed to process inquiry. Please try again or contact us directly at sales@spansol.com.',
     });
   }
 }
@@ -41,10 +55,14 @@ export function getHealthStatus(
   _req: Request,
   res: Response
 ): void {
-  res.status(200).json({
-    status: 'healthy',
+  const isConnected = isDatabaseConnected();
+  const isProd = config.nodeEnv === 'production';
+  const statusCode = !isConnected && isProd ? 503 : 200;
+
+  res.status(statusCode).json({
+    status: isConnected ? 'healthy' : (isProd ? 'degraded' : 'healthy'),
     timestamp: new Date().toISOString(),
-    database: isDatabaseConnected() ? 'connected' : 'memory_fallback',
+    database: isConnected ? 'connected' : (isProd ? 'disconnected' : 'memory_fallback'),
     company: 'SPAN Industrial Solutions Pvt Ltd',
   });
 }

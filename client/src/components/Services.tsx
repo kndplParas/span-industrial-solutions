@@ -6,9 +6,54 @@ import {
   Video,
   CheckCircle2,
   ArrowRight,
+  Car,
+  Cog,
+  Boxes,
+  Cpu,
+  Wrench,
+  Layers,
 } from 'lucide-react';
 import type { InquiryServiceType } from '../types/inquiry';
 import { ServiceModal, type ServiceDetail } from './ServiceModal';
+
+interface SectorItem {
+  name: string;
+  subtext: string;
+  icon: React.ReactNode;
+}
+
+const SECTORS: SectorItem[] = [
+  {
+    name: 'Automotive & Tier-1 OEMs',
+    subtext: 'Press shop, chassis, powertrain & assembly',
+    icon: <Car size={20} />,
+  },
+  {
+    name: 'Precision & Heavy Engineering',
+    subtext: 'CNC/VMC machining, forging & tool rooms',
+    icon: <Cog size={20} />,
+  },
+  {
+    name: 'Packaging, Plastics & Polymers',
+    subtext: 'Injection molding, blow molding & corrugation',
+    icon: <Boxes size={20} />,
+  },
+  {
+    name: 'Electrical & Electronics Assembly',
+    subtext: 'SMT lines, wiring harnesses & panels',
+    icon: <Cpu size={20} />,
+  },
+  {
+    name: 'Fabrication, Fasteners & Metalwork',
+    subtext: 'Sheet metal, welding & cold forging',
+    icon: <Wrench size={20} />,
+  },
+  {
+    name: 'FMCG & Consumer Manufacturing',
+    subtext: 'High-speed bottling, packaging & warehousing',
+    icon: <Layers size={20} />,
+  },
+];
 
 interface ServicesProps {
   onSelectService: (serviceType: InquiryServiceType) => void;
@@ -20,6 +65,7 @@ const SERVICES_DATA: ServiceDetail[] = [
     serviceType: 'Workforce Management Solutions',
     title: 'Workforce Management Solutions',
     tagline: 'Precision industrial staffing & role-matched candidate recruitment',
+    image: '/workforce-management.jpg',
     overview:
       'SPAN bridges the gap between industrial employers and qualified candidates. We pick the most suitable personnel to fit the exact operational requirements, qualifications, and experience demanded by plant and corporate positions. Leveraging our established background in US staffing and screening approaches, we deploy innovative evaluation techniques that align candidate competencies with employer expectations.',
     keyBenefits: [
@@ -47,6 +93,7 @@ const SERVICES_DATA: ServiceDetail[] = [
     serviceType: 'Guaranteed Saving Program',
     title: 'Guaranteed Saving Program (GET SHRINK)',
     tagline: '5 Proven tools to reduce manufacturing cost by 20% to 30%',
+    image: '/guaranteed-saving.jpg',
     overview:
       'The GET SHRINK program focuses on identifying and cutting hidden wastes across manufacturing operations without capital expenditure. By applying five targeted operational tools, SPAN works alongside plant managers to uncover systemic inefficiencies and drive assured cost reductions within committed timeframes.',
     keyBenefits: [
@@ -75,25 +122,26 @@ const SERVICES_DATA: ServiceDetail[] = [
     serviceType: 'Experts Training for Industries',
     title: 'Experts Training for Industries',
     tagline: 'Managed shop-floor & engineering programs led by industry veterans',
+    image: '/experts-training.jpg',
     overview:
       'We manage continuous learning programs for engineering professionals and factory employees, taught directly by leading experts who have spent decades serving across core industries. Because real operational growth comes from practicing proven manufacturing methodologies, our modules focus on tangible shop-floor application rather than mere classroom theory.',
     keyBenefits: [
       'Mentorship by seasoned veterans with decades of hands-on industry experience',
-      'Practical engineering drawing and GD&T blueprint interpretation',
-      'Proven quality frameworks including Kaizen, 5S, and 7QC tools',
+      'Practical engineering drawing and blueprint reading skills',
+      'Proven quality frameworks for continuous workplace improvement',
       'Measurable improvement in shop-floor discipline and defect reduction',
     ],
     scopeAndDeliverables: [
-      'Kaizen Concept & Continuous Improvement',
-      '7QC Tools & Root-Cause Analysis',
-      '5S Concept & Workplace Organization',
-      'Industrial Drawing Study & Blueprint Reading',
-      'GD & T (Geometric Dimensioning & Tolerancing)',
+      'Continuous Improvement & Waste Reduction (Kaizen)',
+      'Quality Control & Problem Solving (7QC Tools)',
+      'Workplace Organization & Safety (5S)',
+      'Engineering Drawing & Blueprint Reading',
+      'Precision Measurement & Tolerancing (GD&T)',
       'Inventory Control & Store Management',
-      'Functional Analysis & Planning',
+      'Process & Functional Workflow Planning',
       'Quality Management Systems',
       'Production Management & Line Balancing',
-      'APQP (Advanced Product Quality Planning)',
+      'Advanced Quality Planning & Defect Prevention',
     ],
     specialties: [
       'Direct instruction by seasoned industry experts',
@@ -103,33 +151,71 @@ const SERVICES_DATA: ServiceDetail[] = [
   },
   {
     id: 'video-solutions',
-    serviceType: 'Industrial / Corporate Video Solutions',
-    title: 'Industrial / Corporate Video Solutions',
-    tagline: 'Transform complex industrial operations into engaging visual media',
+    serviceType: 'Self-Paced Learning & Video Solutions',
+    title: 'Self-Paced Learning & Industrial Video Solutions',
+    tagline: 'Self-Paced Learning as core objective — modular visual training for operators, safety & plants',
+    image: '/video-solutions.jpg',
     overview:
-      'Industrial processes, safety compliance protocols, and technical machinery can be difficult to communicate through text or manuals alone. SPAN produces clear, high-impact industrial and corporate visual content that helps companies showcase facilities, educate operators, enforce safety protocols, and communicate value to clients and stakeholders.',
+      'With Self-Paced Learning as the core objective, SPAN transforms complex industrial operations, machine procedures, and safety compliance protocols into modular, on-demand visual learning content. Rather than generic corporate videos or static text manuals, operators and workforce personnel learn, review, and master standard operating procedures (SOPs) at their own speed. This self-paced methodology ensures continuous shop-floor skill development, standardizes safety protocols, and accelerates onboarding with zero plant disruption.',
     keyBenefits: [
-      'Simplifies complex engineering workflows and plant operations',
-      'Standardizes safety compliance through engaging video guidelines',
-      'Combines on-site footage, photos, and animated explainer graphics',
-      'End-to-end production: from concept and scripting to shooting and final edit',
+      'Self-Paced Learning modules empowering operators to master workflows at their own speed',
+      'Standardizes safety compliance protocols and SOP guidelines for repeatable retention',
+      'Transforms complex plant operations into modular, easy-to-follow visual training',
+      'Complete production lifecycle: instructional design, on-site shooting, and LMS-ready modules',
     ],
     scopeAndDeliverables: [
-      'Company Profile Videos',
-      'Industrial Videos & Plant Walkthroughs',
-      'Safety Videos & Protocol Modules',
-      'Safety Guideline Videos for Workers & Visitors',
-      'Training & Explainer Videos',
-      'Process Explanation Videos',
+      'Self-Paced Operator Learning Modules',
+      'Process & Machine SOP Explainer Modules',
+      'Mandatory Safety & Compliance Learning',
+      'Worker & Visitor Safety Guideline Videos',
+      'Interactive Training & Explainer Modules',
+      'Industrial Plant Walkthroughs & Facility Profiles',
       'Animated & AI-assisted Explainer Modules',
-      'Photo + Video Presentations',
       'On-site Video Shooting & Field Production',
-      'Professional Video Editing & Sound Mixing',
+      'Digital Learning Asset Management & Post-Production',
     ],
     specialties: [
-      'Complete end-to-end video lifecycle execution',
-      'Engineered specifically for manufacturing and industrial audiences',
-      'High-clarity safety & standard operating procedure (SOP) visuals',
+      'Self-Paced Learning as the primary operational objective',
+      'High-retention standard operating procedure (SOP) visual modules',
+      'Engineered specifically for manufacturing and industrial shop floors',
+    ],
+    subSections: [
+      {
+        id: 'self-paced-learning-sec',
+        title: 'Self-Paced Learning',
+        image: '/self-paced-learning.jpg',
+        badgePill: {
+          label: '● Core Objective:',
+          text: 'Self-Paced Learning • Digital Shop-Floor Modules',
+          color: '#0284c7',
+        },
+        description:
+          'With Self-Paced Learning as the primary operational objective, SPAN transforms dense machinery manuals and complex engineering workflows into modular, interactive visual learning content. Operators, assembly technicians, and new recruits learn and review standard operating procedures (SOPs) at their own pace directly on rugged shop-floor tablets or training stations. This eliminates the pressure of fast one-time lectures, enables unlimited step-by-step replay for difficult operations, and guarantees uniform retention without pulling experienced engineers off running production lines.',
+        deliverables: [
+          'Self-paced digital SOP modules with unlimited replay and step-by-step comprehension',
+          'Interactive machine setup, line balancing & preventive maintenance guidance',
+          'Zero plant disruption: training conducted during shift changeovers or scheduled intervals',
+          'Multilingual audio and bilingual visual subtitles tailored for diverse shop-floor workforces',
+        ],
+      },
+      {
+        id: 'industrial-video-solutions-sec',
+        title: 'Industrial Video Solutions',
+        image: '/video-solutions.jpg',
+        badgePill: {
+          label: '● Production Capability:',
+          text: 'On-Site 4K Filming • Safety Hazard Overlays • ISO/OSHA Induction',
+          color: '#ec4899',
+        },
+        description:
+          'SPAN delivers specialized on-site video filming and media production tailored explicitly for discrete manufacturing plants, industrial workshops, and process facilities. Our dedicated media crew and industrial storyboard engineers deploy with professional camera rigs directly to your shop floor to record high-definition equipment operations, worker orientation films, plant walkthroughs, and hazard safety protocols. We manage the complete media lifecycle from technical scriptwriting and storyboard design to high-definition post-production.',
+        deliverables: [
+          'Full-scale on-site filming: precision machine close-ups and plant floor walkthroughs',
+          '2D/3D animated motion graphics and hazard alert overlays highlighting danger zones',
+          'Visitor, contractor & worker safety induction videos complying with ISO/OSHA standards',
+          'Digital learning asset management and LMS-ready export optimization for plant displays',
+        ],
+      },
     ],
   },
 ];
@@ -302,16 +388,16 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   10 Core Training Modules:
                 </div>
                 <div className="service-pills-row">
-                  <span className="service-sub-pill">Kaizen Concept</span>
-                  <span className="service-sub-pill">7QC Tools</span>
-                  <span className="service-sub-pill">5S Concept</span>
-                  <span className="service-sub-pill">Industrial Drawing Study</span>
-                  <span className="service-sub-pill">GD & T</span>
-                  <span className="service-sub-pill">Inventory Control</span>
-                  <span className="service-sub-pill">Functional Analysis</span>
+                  <span className="service-sub-pill">Continuous Improvement</span>
+                  <span className="service-sub-pill">Quality Control Tools</span>
+                  <span className="service-sub-pill">Workplace Organization (5S)</span>
+                  <span className="service-sub-pill">Engineering Drawings</span>
+                  <span className="service-sub-pill">Precision Measurements</span>
+                  <span className="service-sub-pill">Inventory & Store Control</span>
+                  <span className="service-sub-pill">Process Planning</span>
                   <span className="service-sub-pill">Quality Management</span>
                   <span className="service-sub-pill">Production Management</span>
-                  <span className="service-sub-pill">APQP</span>
+                  <span className="service-sub-pill">Defect Prevention</span>
                 </div>
               </div>
             </div>
@@ -335,41 +421,42 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </div>
           </div>
 
-          {/* SERVICE 4: Video Solutions */}
+          {/* SERVICE 4: Self-Paced Learning & Video Solutions */}
           <div className="service-card">
             <div className="service-card-top">
               <span className="service-card-tag" style={{ color: '#0284c7' }}>
-                Vertical 04 &bull; Media & Visuals
+                Vertical 04 &bull; Self-Paced Learning & Visual Media
               </span>
               <div className="service-card-icon-wrap">
                 <Video size={28} />
               </div>
-              <h3 className="service-card-title">Industrial / Corporate Video Solutions</h3>
+              <h3 className="service-card-title">Self-Paced Learning & Industrial Video Solutions</h3>
               <p className="service-card-desc">
-                Transform complex industrial processes, safety guidelines, and company information into
-                clear, professional, and engaging visual content for companies and industrial clients.
+                Self-Paced Learning is our primary objective. We transform complex industrial machinery
+                workflows, safety compliance guidelines, and plant SOPs into modular, on-demand visual
+                learning content that operators and staff can master at their own speed.
               </p>
 
               <ul className="service-features-list">
                 <li className="service-feature-item">
                   <CheckCircle2 size={15} className="feature-check" />
-                  <span>Industrial plant walkthroughs & company profiles</span>
+                  <span>Self-Paced Learning modules for operator onboarding & SOP retention</span>
                 </li>
                 <li className="service-feature-item">
                   <CheckCircle2 size={15} className="feature-check" />
-                  <span>Mandatory safety awareness & worker guideline videos</span>
+                  <span>Mandatory safety awareness & worker compliance training</span>
                 </li>
                 <li className="service-feature-item">
                   <CheckCircle2 size={15} className="feature-check" />
-                  <span>On-site video shooting, animated explainers & editing</span>
+                  <span>Industrial plant walkthroughs, animated explainers & on-site shooting</span>
                 </li>
               </ul>
 
               <div className="service-pills-row">
-                <span className="service-sub-pill">Company Profile</span>
-                <span className="service-sub-pill">Safety Videos</span>
+                <span className="service-sub-pill">Self-Paced Learning</span>
+                <span className="service-sub-pill">Safety SOP Modules</span>
                 <span className="service-sub-pill">Process Explanation</span>
-                <span className="service-sub-pill">On-site Shooting</span>
+                <span className="service-sub-pill">Plant Walkthroughs</span>
               </div>
             </div>
 
@@ -384,12 +471,31 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               <button
                 type="button"
                 className="btn btn-primary btn-sm"
-                onClick={() => onSelectService('Industrial / Corporate Video Solutions')}
+                onClick={() => onSelectService('Self-Paced Learning & Video Solutions')}
               >
                 <span>Inquire</span>
                 <ArrowRight size={14} />
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Specialized Experience Across Core Manufacturing Sectors */}
+        <div className="sectors-wrapper" style={{ marginTop: '3rem' }}>
+          <div className="sectors-banner-title">
+            <span>Specialized Experience Across Core Manufacturing Sectors:</span>
+          </div>
+
+          <div className="sectors-grid">
+            {SECTORS.map((sector, idx) => (
+              <div key={idx} className="sector-chip">
+                <div className="sector-chip-icon">{sector.icon}</div>
+                <div className="sector-chip-text">
+                  <span className="sector-chip-name">{sector.name}</span>
+                  <span className="sector-chip-sub">{sector.subtext}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

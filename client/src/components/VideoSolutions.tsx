@@ -153,7 +153,7 @@ export const VideoSolutions: React.FC<VideoSolutionsProps> = ({ onDiscussVideo }
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => onDiscussVideo('Industrial / Corporate Video Solutions')}
+            onClick={() => onDiscussVideo('Self-Paced Learning & Video Solutions')}
           >
             <Video size={16} />
             <span>Discuss Your Video Requirement</span>

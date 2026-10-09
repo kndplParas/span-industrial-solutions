@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TrustMetricsBar } from './components/TrustMetricsBar';
 import { About } from './components/About';
 import { Services } from './components/Services';
-import { VideoSolutions } from './components/VideoSolutions';
 import { WhySpan } from './components/WhySpan';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -65,17 +63,11 @@ export const App: React.FC = () => {
           onContact={() => scrollToSection('contact')}
         />
 
-        {/* Industry Sectors & Operational Impact Metrics Bar */}
-        <TrustMetricsBar />
-
         {/* About Section */}
         <About />
 
         {/* Services Section (4 Core Verticals) */}
         <Services onSelectService={handleSelectServiceAndScroll} />
-
-        {/* Dedicated Video Solutions Section */}
-        <VideoSolutions onDiscussVideo={handleSelectServiceAndScroll} />
 
         {/* Why SPAN Section */}
         <WhySpan />

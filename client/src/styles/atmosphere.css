@@ -9,6 +9,8 @@
 .has-atmosphere {
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  contain: paint;
 }
 
 .section-content-layer {
@@ -1109,6 +1111,40 @@
   .about-geo-ring,
   .whyspan-ring,
   .contact-radar-wave.wave-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-orb-primary,
+  .hero-orb-accent,
+  .hero-orb-amber,
+  .about-orb-teal,
+  .about-orb-amber,
+  .whyspan-orb-berry,
+  .whyspan-orb-teal,
+  .contact-glow-berry,
+  .contact-glow-blue,
+  .video-orb-cyan,
+  .video-orb-berry {
+    width: 180px;
+    height: 180px;
+    filter: blur(28px);
+    opacity: 0.45;
+  }
+  .floating-bubble,
+  .about-bubble,
+  .services-bubble,
+  .whyspan-bubble,
+  .contact-bubble {
+    display: none;
+  }
+  .glowing-particle:nth-child(even),
+  .about-particle:nth-child(even),
+  .services-particle:nth-child(even),
+  .cinematic-particle:nth-child(even),
+  .whyspan-particle:nth-child(even),
+  .contact-particle:nth-child(even) {
     display: none;
   }
 }

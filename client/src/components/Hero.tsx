@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, PhoneCall, ShieldCheck, Award, Factory, Users, TrendingDown, Video } from 'lucide-react';
+import { ArrowRight, PhoneCall, Award, Factory, Users, TrendingDown, Video, Building2 } from 'lucide-react';
 
 interface HeroProps {
   onExploreServices: () => void;
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
               SPAN Industrial Solutions Pvt Ltd delivers practical, results-driven industrial and business
               services. We empower manufacturing and corporate enterprises through strategic workforce
               management, proven manufacturing cost reduction (GET SHRINK), shop-floor expert training,
-              and professional industrial video solutions.
+              and Self-Paced Learning through industrial visual solutions.
             </p>
 
             <div className="hero-cta-group">
@@ -143,18 +143,18 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
                   </div>
                   <div className="preview-tile-title">Industrial Training</div>
                   <p className="preview-tile-desc">
-                    Kaizen, 7QC Tools, 5S, GD&T, and engineering quality systems by industry veterans.
+                    Practical training in plant productivity, workplace organization, quality tools, and machine operations by seasoned experts.
                   </p>
                 </div>
 
-                {/* 4. Video Solutions */}
+                {/* 4. Self-Paced Learning & Video Solutions */}
                 <div className="preview-tile">
                   <div className="preview-tile-icon">
                     <Video size={24} />
                   </div>
-                  <div className="preview-tile-title">Video Solutions</div>
+                  <div className="preview-tile-title">Self-Paced Learning</div>
                   <p className="preview-tile-desc">
-                    Plant walkthroughs, safety compliance guidelines & process explanation videos.
+                    Modular visual learning, safety compliance guidelines & plant walkthroughs for on-demand workforce mastery.
                   </p>
                 </div>
               </div>
@@ -165,14 +165,40 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onContact }) => {
                   paddingTop: '1rem',
                   borderTop: '1px solid #e2e8f0',
                   display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontSize: '0.8rem',
-                  color: '#475569',
+                  flexDirection: 'column',
+                  gap: '6px',
                 }}
               >
-                <ShieldCheck size={16} color="#c5221f" />
-                <span>Zero Capex Involved for cost reduction audits • Tailored execution</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      backgroundColor: '#eff6ff',
+                      color: '#0284c7',
+                      fontSize: '0.74rem',
+                      fontWeight: 800,
+                      padding: '3px 8px',
+                      borderRadius: '5px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.03em',
+                    }}
+                  >
+                    <Building2 size={13} />
+                    Proven Across 1,000+ Organizations
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontSize: '0.825rem',
+                    color: '#475569',
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
+                  SPAN has delivered these specialized operational, workforce, cost-saving, and technical training solutions across <strong>1,000+ manufacturing plants and corporate organizations</strong>. From discrete automotive workshops to heavy engineering facilities, our proven methodologies ensure measurable productivity, structured compliance, and lasting shop-floor excellence.
+                </p>
               </div>
             </div>
           </div>

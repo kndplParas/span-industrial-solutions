@@ -145,17 +145,21 @@ export const About: React.FC = () => {
                 Direct Inquiries
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.875rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Mail size={16} color="#c5221f" />
-                  <a href="mailto:sales@spansol.com" style={{ color: '#0b2545', fontWeight: 600 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <Mail size={16} color="#c5221f" style={{ flexShrink: 0 }} />
+                  <a href="mailto:sales@spansol.com" style={{ color: '#0b2545', fontWeight: 600, wordBreak: 'break-all' }}>
                     sales@spansol.com
                   </a>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Phone size={16} color="#c5221f" />
-                  <span style={{ color: '#334155' }}>
-                    0120-4484500 &bull; 9045085537 &bull; 8449368000
-                  </span>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', flexWrap: 'wrap' }}>
+                  <Phone size={16} color="#c5221f" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div style={{ color: '#334155', display: 'flex', flexWrap: 'wrap', gap: '4px 8px' }}>
+                    <a href="tel:01204484500" style={{ color: '#334155', textDecoration: 'none' }}>0120-4484500</a>
+                    <span>&bull;</span>
+                    <a href="tel:+919045085537" style={{ color: '#334155', textDecoration: 'none' }}>9045085537</a>
+                    <span>&bull;</span>
+                    <a href="tel:+918449368000" style={{ color: '#334155', textDecoration: 'none' }}>8449368000</a>
+                  </div>
                 </div>
               </div>
             </div>

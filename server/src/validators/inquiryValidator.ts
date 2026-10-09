@@ -80,6 +80,8 @@ export function validateInquiry(input: any): ValidationResult {
           company,
           email,
           phone,
+          state: sanitizeString(input?.state) || undefined,
+          city: sanitizeString(input?.city) || undefined,
           service,
           message,
         }

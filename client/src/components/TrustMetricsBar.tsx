@@ -131,7 +131,6 @@ export const TrustMetricsBar: React.FC = () => {
   // Smooth count animation when section becomes visible
   useEffect(() => {
     if (!isVisible) return;
-    let start = 0;
     const duration = 1600;
     const startTime = performance.now();
 

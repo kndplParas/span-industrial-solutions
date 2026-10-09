@@ -9,6 +9,7 @@ import {
   Send,
 } from 'lucide-react';
 import { INQUIRY_SERVICES, type InquiryFormData, type InquiryServiceType } from '../types/inquiry';
+import { INDIAN_STATES, INDIA_STATES_AND_CITIES } from '../data/indiaLocations';
 
 interface ContactProps {
   selectedServicePreload?: InquiryServiceType;
@@ -20,6 +21,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
     company: '',
     email: '',
     phone: '',
+    state: '',
+    city: '',
     service: selectedServicePreload || 'Workforce Management Solutions',
     message: '',
   });
@@ -37,8 +40,28 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
     }
   }, [selectedServicePreload]);
 
-  const validateField = (name: keyof InquiryFormData, val: string): string => {
-    const trimmed = val.trim();
+  const availableCities = formData.state ? INDIA_STATES_AND_CITIES[formData.state] || [] : [];
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedState = e.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      state: selectedState,
+      city: '', // Reset city when state changes
+    }));
+
+    if (touched.state) {
+      const err = validateField('state', selectedState);
+      setErrors((prev) => ({
+        ...prev,
+        state: err,
+        city: '',
+      }));
+    }
+  };
+
+  const validateField = (name: keyof InquiryFormData, val: string = ''): string => {
+    const trimmed = (val || '').trim();
     switch (name) {
       case 'name':
         if (!trimmed) return 'Full name is required.';
@@ -59,6 +82,12 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
         if (!/^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{6,15}$/.test(trimmed.replace(/\s+/g, ''))) {
           return 'Please enter a valid phone number (e.g. 9045085537).';
         }
+        return '';
+      case 'state':
+        if (!trimmed) return 'Please select your organization state / UT.';
+        return '';
+      case 'city':
+        if (!trimmed) return 'Please select your organization city / industrial hub.';
         return '';
       case 'service':
         if (!trimmed) return 'Please select a service vertical.';
@@ -100,11 +129,20 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
 
     // Validate all fields
     const newErrors: Record<string, string> = {};
-    const fieldKeys: (keyof InquiryFormData)[] = ['name', 'company', 'email', 'phone', 'service', 'message'];
+    const fieldKeys: (keyof InquiryFormData)[] = [
+      'name',
+      'company',
+      'email',
+      'phone',
+      'state',
+      'city',
+      'service',
+      'message',
+    ];
     let hasError = false;
 
     fieldKeys.forEach((key) => {
-      const err = validateField(key, formData[key]);
+      const err = validateField(key, formData[key] || '');
       if (err) {
         newErrors[key] = err;
         hasError = true;
@@ -116,6 +154,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
       company: true,
       email: true,
       phone: true,
+      state: true,
+      city: true,
       service: true,
       message: true,
     });
@@ -129,12 +169,20 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
     setIsLoading(true);
 
     try {
+      const payload = {
+        ...formData,
+        message:
+          formData.state && formData.city
+            ? `[Organization Location: ${formData.city}, ${formData.state}]\n\n${formData.message}`
+            : formData.message,
+      };
+
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const result = await res.json();
@@ -156,6 +204,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
         company: '',
         email: '',
         phone: '',
+        state: '',
+        city: '',
         service: selectedServicePreload || 'Workforce Management Solutions',
         message: '',
       });
@@ -234,8 +284,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
                     <span className="channel-val">
                       <a href="tel:01204484500">0120-4484500</a>
                     </span>
-                    <div style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px' }}>
-                      Mobile: <a href="tel:9045085537" style={{ color: '#0b2545', fontWeight: 600 }}>9045085537</a> &bull;{' '}
+                    <div style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px', display: 'flex', flexWrap: 'wrap', gap: '4px 6px' }}>
+                      <span>Mobile:</span>
+                      <a href="tel:9045085537" style={{ color: '#0b2545', fontWeight: 600 }}>9045085537</a>
+                      <span>&bull;</span>
                       <a href="tel:8449368000" style={{ color: '#0b2545', fontWeight: 600 }}>8449368000</a>
                     </div>
                   </div>
@@ -380,6 +432,70 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreload }) => {
                   />
                   {touched.phone && errors.phone && (
                     <span className="field-error-msg">{errors.phone}</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Organization State & City (2 Blocks in One Row) */}
+              <div className="form-row">
+                {/* State / UT */}
+                <div className="form-group">
+                  <label htmlFor="inquiry-state" className="form-label">
+                    Organization State / UT <span className="required">*</span>
+                  </label>
+                  <select
+                    id="inquiry-state"
+                    name="state"
+                    className={`form-control ${touched.state && errors.state ? 'error' : ''}`}
+                    value={formData.state || ''}
+                    onChange={handleStateChange}
+                    onBlur={handleBlur}
+                    required
+                  >
+                    <option value="">-- Select State / UT --</option>
+                    {INDIAN_STATES.map((st) => (
+                      <option key={st} value={st}>
+                        {st}
+                      </option>
+                    ))}
+                  </select>
+                  {touched.state && errors.state && (
+                    <span className="field-error-msg">{errors.state}</span>
+                  )}
+                </div>
+
+                {/* City / Industrial Hub */}
+                <div className="form-group">
+                  <label htmlFor="inquiry-city" className="form-label">
+                    City / Industrial Hub <span className="required">*</span>
+                  </label>
+                  <select
+                    id="inquiry-city"
+                    name="city"
+                    disabled={!formData.state}
+                    className={`form-control ${touched.city && errors.city ? 'error' : ''}`}
+                    value={formData.city || ''}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required
+                    style={{
+                      cursor: !formData.state ? 'not-allowed' : 'pointer',
+                      backgroundColor: !formData.state ? '#f8fafc' : undefined,
+                    }}
+                  >
+                    <option value="">
+                      {formData.state
+                        ? '-- Select City / Industrial Hub --'
+                        : '-- Select State First --'}
+                    </option>
+                    {availableCities.map((ct) => (
+                      <option key={ct} value={ct}>
+                        {ct}
+                      </option>
+                    ))}
+                  </select>
+                  {touched.city && errors.city && (
+                    <span className="field-error-msg">{errors.city}</span>
                   )}
                 </div>
               </div>

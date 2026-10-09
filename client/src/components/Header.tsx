@@ -18,7 +18,6 @@ export const Header: React.FC = () => {
         { id: 'home', target: 'home' },
         { id: 'about', target: 'about' },
         { id: 'services', target: 'services' },
-        { id: 'video-solutions', target: 'services' }, // Map to services vertical
         { id: 'why-span', target: 'why-span' },
         { id: 'contact', target: 'contact' },
       ];
@@ -40,6 +39,25 @@ export const Header: React.FC = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle Escape key to close mobile menu & prevent background scrolling
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const toggleMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
@@ -150,6 +168,13 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Drawer Backdrop */}
+      <div
+        className={`mobile-drawer-backdrop ${mobileMenuOpen ? 'open' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
 
       {/* Mobile Drawer */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`} aria-hidden={!mobileMenuOpen}>

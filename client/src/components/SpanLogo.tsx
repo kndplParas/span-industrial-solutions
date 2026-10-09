@@ -78,7 +78,7 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            lineHeight: 1.25,
+            lineHeight: 1.2,
           }}
         >
           <span
@@ -89,8 +89,7 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
               fontWeight: 700,
               letterSpacing: '0.015em',
               textTransform: 'uppercase',
-              lineHeight: 1.2,
-              whiteSpace: 'nowrap',
+              lineHeight: 1.18,
             }}
           >
             SPAN INDUSTRIAL SOLUTIONS PVT LTD
@@ -103,7 +102,6 @@ export const SpanLogo: React.FC<SpanLogoProps> = ({
               fontWeight: 500,
               letterSpacing: '0.025em',
               marginTop: '2px',
-              whiteSpace: 'nowrap',
             }}
           >
             ISO 9001:2015 Certified Company
